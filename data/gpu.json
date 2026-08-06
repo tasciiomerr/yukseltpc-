@@ -1,0 +1,30 @@
+[
+  {
+    "id": "gpu-001",
+    "slug": "nvidia-rtx-4060",
+    "name": "NVIDIA GeForce RTX 4060",
+    "brand": "NVIDIA",
+    "lengthMm": 244,
+    "powerConnectorRequired": "8-pin",
+    "recommendedPsuWatt": 550,
+    "vram": 8,
+    "tdp": 115,
+    "priceRangeNew": { "min": 13500, "max": 15500 },
+    "priceRangeUsed": { "min": 10500, "max": 12000 },
+    "lastUpdated": "2026-08-06"
+  },
+  {
+    "id": "gpu-002",
+    "slug": "amd-rx-7600",
+    "name": "AMD Radeon RX 7600",
+    "brand": "AMD",
+    "lengthMm": 210,
+    "powerConnectorRequired": "8-pin",
+    "recommendedPsuWatt": 550,
+    "vram": 8,
+    "tdp": 165,
+    "priceRangeNew": { "min": 10500, "max": 12500 },
+    "priceRangeUsed": { "min": 8000, "max": 9500 },
+    "lastUpdated": "2026-08-06"
+  }
+]

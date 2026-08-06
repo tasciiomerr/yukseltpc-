@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cooler-001",
+    "slug": "cooler-master-hyper-212",
+    "name": "Cooler Master Hyper 212",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200"],
+    "heightMm": 159,
+    "priceRangeNew": { "min": 1200, "max": 1500 },
+    "priceRangeUsed": { "min": 800, "max": 1000 },
+    "lastUpdated": "2026-08-06"
+  },
+  {
+    "id": "cooler-002",
+    "slug": "nzxt-kraken-240",
+    "name": "NZXT Kraken 240",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 4200, "max": 5000 },
+    "priceRangeUsed": { "min": 3000, "max": 3600 },
+    "lastUpdated": "2026-08-06"
+  }
+]

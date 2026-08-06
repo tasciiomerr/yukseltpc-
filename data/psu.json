@@ -1,0 +1,24 @@
+[
+  {
+    "id": "psu-001",
+    "slug": "corsair-cv550",
+    "name": "Corsair CV550",
+    "wattage": 550,
+    "certification": "80+ Bronze",
+    "isModular": false,
+    "priceRangeNew": { "min": 2200, "max": 2600 },
+    "priceRangeUsed": { "min": 1600, "max": 1900 },
+    "lastUpdated": "2026-08-06"
+  },
+  {
+    "id": "psu-002",
+    "slug": "asus-tuf-gaming-650b",
+    "name": "ASUS TUF Gaming 650B",
+    "wattage": 650,
+    "certification": "80+ Bronze",
+    "isModular": true,
+    "priceRangeNew": { "min": 3200, "max": 3800 },
+    "priceRangeUsed": { "min": 2400, "max": 2800 },
+    "lastUpdated": "2026-08-06"
+  }
+]

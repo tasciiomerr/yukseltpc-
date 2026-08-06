@@ -1,0 +1,24 @@
+[
+  {
+    "id": "case-001",
+    "slug": "nzxt-h510",
+    "name": "NZXT H510",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 381,
+    "maxCoolerHeightMm": 165,
+    "priceRangeNew": { "min": 2800, "max": 3300 },
+    "priceRangeUsed": { "min": 2000, "max": 2400 },
+    "lastUpdated": "2026-08-06"
+  },
+  {
+    "id": "case-002",
+    "slug": "cooler-master-masterbox-q300l",
+    "name": "Cooler Master MasterBox Q300L",
+    "supportedFormFactors": ["mATX", "ITX"],
+    "maxGpuLengthMm": 360,
+    "maxCoolerHeightMm": 158,
+    "priceRangeNew": { "min": 1600, "max": 2000 },
+    "priceRangeUsed": { "min": 1100, "max": 1400 },
+    "lastUpdated": "2026-08-06"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cpu-001",
+    "slug": "amd-ryzen-5-5600",
+    "name": "AMD Ryzen 5 5600",
+    "brand": "AMD",
+    "socket": "AM4",
+    "cores": 6,
+    "threads": 12,
+    "tdp": 65,
+    "hasIntegratedGraphics": false,
+    "generation": "Zen 3",
+    "priceRangeNew": { "min": 3200, "max": 4000 },
+    "priceRangeUsed": { "min": 2200, "max": 2800 },
+    "lastUpdated": "2026-08-06"
+  },
+  {
+    "id": "cpu-002",
+    "slug": "intel-core-i5-13400f",
+    "name": "Intel Core i5-13400F",
+    "brand": "Intel",
+    "socket": "LGA1700",
+    "cores": 10,
+    "threads": 16,
+    "tdp": 65,
+    "hasIntegratedGraphics": false,
+    "generation": "13th Gen",
+    "priceRangeNew": { "min": 5500, "max": 6500 },
+    "priceRangeUsed": { "min": 4000, "max": 4800 },
+    "lastUpdated": "2026-08-06"
+  }
+]

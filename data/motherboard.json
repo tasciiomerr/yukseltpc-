@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mb-001",
+    "slug": "asus-b550m-a",
+    "name": "ASUS B550M-A",
+    "brand": "ASUS",
+    "socket": "AM4",
+    "chipset": "B550",
+    "ramType": "DDR4",
+    "ramSlots": 4,
+    "formFactor": "mATX",
+    "pcieVersion": "4.0",
+    "priceRangeNew": { "min": 3500, "max": 4200 },
+    "priceRangeUsed": { "min": 2500, "max": 3000 },
+    "lastUpdated": "2026-08-06"
+  },
+  {
+    "id": "mb-002",
+    "slug": "msi-pro-b760m-a",
+    "name": "MSI PRO B760M-A",
+    "brand": "MSI",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "ramType": "DDR4",
+    "ramSlots": 4,
+    "formFactor": "mATX",
+    "pcieVersion": "4.0",
+    "priceRangeNew": { "min": 4800, "max": 5600 },
+    "priceRangeUsed": { "min": 3600, "max": 4200 },
+    "lastUpdated": "2026-08-06"
+  }
+]

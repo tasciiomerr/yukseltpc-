@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ram-001",
+    "slug": "kingston-fury-beast-16gb-ddr4-3200",
+    "name": "Kingston Fury Beast 16GB DDR4 3200MHz",
+    "type": "DDR4",
+    "speed": 3200,
+    "capacity": 16,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 1100, "max": 1400 },
+    "priceRangeUsed": { "min": 800, "max": 1000 },
+    "lastUpdated": "2026-08-06"
+  },
+  {
+    "id": "ram-002",
+    "slug": "corsair-vengeance-32gb-ddr5-6000",
+    "name": "Corsair Vengeance 32GB DDR5 6000MHz",
+    "type": "DDR5",
+    "speed": 6000,
+    "capacity": 32,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 3400, "max": 3900 },
+    "priceRangeUsed": { "min": 2600, "max": 3000 },
+    "lastUpdated": "2026-08-06"
+  }
+]
