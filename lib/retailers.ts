@@ -10,11 +10,12 @@ export interface Retailer {
 
 /**
  * URL kalıpları 2026-08-06 tarihinde ilgili sitelerde arama yapılarak
- * doğrulanmıştır (bkz. Faz 4 araştırması). İtopya ve Sahibinden,
- * bot koruması nedeniyle bu geliştirme ortamından doğrudan tıklanarak
- * test edilemedi; kalıpları sitenin kendi indekslenmiş URL'lerinden ve
- * belgelenmiş kullanım örneklerinden doğrulandı — periyodik olarak
- * elle kontrol edilmeli (bkz. yol haritası madde 80).
+ * doğrulanmıştır (bkz. Faz 4 araştırması, İtopya kalıbı Faz 4 revizyonunda
+ * düzeltildi). Sahibinden, query_text ile aranan kelimeye göre otomatik
+ * olarak bir kategori sayfasına (örn. /bilgisayar-masaustu?query_text=...)
+ * yönlendiriyor; bu normal ve arama sonucu doğru geliyor, kalıp bu haliyle
+ * kullanılabilir. URL kalıpları periyodik olarak elle kontrol edilmeli
+ * (bkz. yol haritası madde 80).
  */
 export const retailers: Retailer[] = [
   {
@@ -45,7 +46,7 @@ export const retailers: Retailer[] = [
     id: "itopya",
     name: "İtopya",
     category: "sifir",
-    urlTemplate: "https://www.itopya.com/arama/?a={query}",
+    urlTemplate: "https://www.itopya.com/ara?bul={query}",
   },
   {
     id: "sahibinden",

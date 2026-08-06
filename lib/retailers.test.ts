@@ -32,7 +32,7 @@ describe("buildRetailerUrl", () => {
 
   it("encodes spaces in the query param form (İtopya)", () => {
     const url = buildRetailerUrl(getRetailer("itopya"), "Ryzen 5 5600X");
-    expect(url).toBe("https://www.itopya.com/arama/?a=Ryzen%205%205600X");
+    expect(url).toBe("https://www.itopya.com/ara?bul=Ryzen%205%205600X");
   });
 
   it("encodes spaces in the query param form (Sahibinden, 2.el)", () => {
