@@ -28,6 +28,7 @@ import {
 } from "@/lib/data";
 import ComponentSelect from "./ComponentSelect";
 import ResultCard, { type ResultStatus } from "./ResultCard";
+import RetailerLinks from "./RetailerLinks";
 
 const QUERY_KEYS = {
   cpu: "cpu",
@@ -162,6 +163,18 @@ export default function UyumlulukAraci() {
     };
   }, [cpu, gpu, psu]);
 
+  const selectedProducts = [
+    cpu,
+    motherboard,
+    ram,
+    gpu,
+    psu,
+    pcCase,
+    cooler,
+  ].filter((product): product is NonNullable<typeof product> =>
+    Boolean(product),
+  );
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
       <h1 className="text-2xl font-bold sm:text-3xl">Uyumluluk Aracı</h1>
@@ -242,6 +255,32 @@ export default function UyumlulukAraci() {
           message={psuResult.message}
         />
       </section>
+
+      {selectedProducts.length > 0 && (
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold">Satıcı Linkleri</h2>
+          <p className="mt-1 text-sm text-black/60 dark:text-white/60">
+            Seçtiğiniz ürünleri sıfır veya 2.el olarak satıcılarda arayın.
+          </p>
+          <div className="mt-4 flex flex-col gap-6">
+            {selectedProducts.map((product) => (
+              <div
+                key={product.slug}
+                className="rounded-lg border border-black/10 p-4 dark:border-white/10"
+              >
+                <h3 className="font-medium">{product.name}</h3>
+                <div className="mt-3">
+                  <RetailerLinks
+                    productName={product.name}
+                    priceRangeNew={product.priceRangeNew}
+                    priceRangeUsed={product.priceRangeUsed}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
