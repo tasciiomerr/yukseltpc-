@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,17 +36,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header className="border-b border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-5xl px-4 py-4">
-            <span className="text-lg font-semibold">YükseltPC</span>
-          </div>
-        </header>
+        <SiteHeader />
         <main className="flex-1">{children}</main>
-        <footer className="border-t border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-5xl px-4 py-6 text-sm text-black/60 dark:text-white/60">
-            © {new Date().getFullYear()} YükseltPC. Tüm hakları saklıdır.
-          </div>
-        </footer>
+        <SiteFooter />
       </body>
     </html>
   );
