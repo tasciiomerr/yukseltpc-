@@ -8,7 +8,7 @@
     "isModular": false,
     "priceRangeNew": { "min": 2200, "max": 2600 },
     "priceRangeUsed": { "min": 1600, "max": 1900 },
-    "lastUpdated": "2026-08-06"
+    "lastUpdated": "2026-08-09"
   },
   {
     "id": "psu-002",
@@ -19,6 +19,160 @@
     "isModular": true,
     "priceRangeNew": { "min": 3200, "max": 3800 },
     "priceRangeUsed": { "min": 2400, "max": 2800 },
-    "lastUpdated": "2026-08-06"
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-003",
+    "slug": "corsair-cv450",
+    "name": "Corsair CV450",
+    "wattage": 450,
+    "certification": "80+ Bronze",
+    "isModular": false,
+    "priceRangeNew": { "min": 1800, "max": 2100 },
+    "priceRangeUsed": { "min": 1300, "max": 1550 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-004",
+    "slug": "seasonic-s12iii-500",
+    "name": "Seasonic S12III 500W",
+    "wattage": 500,
+    "certification": "80+ Bronze",
+    "isModular": false,
+    "priceRangeNew": { "min": 2000, "max": 2400 },
+    "priceRangeUsed": { "min": 1450, "max": 1750 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-005",
+    "slug": "corsair-rm650x",
+    "name": "Corsair RM650x",
+    "wattage": 650,
+    "certification": "80+ Gold",
+    "isModular": true,
+    "priceRangeNew": { "min": 4600, "max": 5300 },
+    "priceRangeUsed": { "min": 3500, "max": 4000 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-006",
+    "slug": "corsair-rm750x",
+    "name": "Corsair RM750x",
+    "wattage": 750,
+    "certification": "80+ Gold",
+    "isModular": true,
+    "priceRangeNew": { "min": 5400, "max": 6200 },
+    "priceRangeUsed": { "min": 4100, "max": 4700 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-007",
+    "slug": "bequiet-pure-power-11-600",
+    "name": "be quiet! Pure Power 11 600W",
+    "wattage": 600,
+    "certification": "80+ Gold",
+    "isModular": false,
+    "priceRangeNew": { "min": 3400, "max": 3900 },
+    "priceRangeUsed": { "min": 2500, "max": 2900 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-008",
+    "slug": "coolermaster-mwe-gold-650-v2",
+    "name": "Cooler Master MWE Gold 650 V2",
+    "wattage": 650,
+    "certification": "80+ Gold",
+    "isModular": true,
+    "priceRangeNew": { "min": 3600, "max": 4200 },
+    "priceRangeUsed": { "min": 2700, "max": 3100 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-009",
+    "slug": "msi-mag-a750gl",
+    "name": "MSI MAG A750GL",
+    "wattage": 750,
+    "certification": "80+ Gold",
+    "isModular": true,
+    "priceRangeNew": { "min": 4800, "max": 5500 },
+    "priceRangeUsed": { "min": 3600, "max": 4100 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-010",
+    "slug": "corsair-rm850x",
+    "name": "Corsair RM850x",
+    "wattage": 850,
+    "certification": "80+ Gold",
+    "isModular": true,
+    "priceRangeNew": { "min": 6800, "max": 7800 },
+    "priceRangeUsed": { "min": 5200, "max": 6000 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-011",
+    "slug": "seasonic-focus-gx-850",
+    "name": "Seasonic Focus GX-850",
+    "wattage": 850,
+    "certification": "80+ Gold",
+    "isModular": true,
+    "priceRangeNew": { "min": 6600, "max": 7500 },
+    "priceRangeUsed": { "min": 5000, "max": 5800 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-012",
+    "slug": "asus-rog-strix-1000g",
+    "name": "ASUS ROG Strix 1000W Gold",
+    "wattage": 1000,
+    "certification": "80+ Gold",
+    "isModular": true,
+    "priceRangeNew": { "min": 9800, "max": 11200 },
+    "priceRangeUsed": { "min": 7500, "max": 8600 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-013",
+    "slug": "corsair-hx1000",
+    "name": "Corsair HX1000",
+    "wattage": 1000,
+    "certification": "80+ Platinum",
+    "isModular": true,
+    "priceRangeNew": { "min": 12500, "max": 14200 },
+    "priceRangeUsed": { "min": 9600, "max": 11000 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-014",
+    "slug": "bequiet-straight-power-11-750",
+    "name": "be quiet! Straight Power 11 750W",
+    "wattage": 750,
+    "certification": "80+ Platinum",
+    "isModular": true,
+    "priceRangeNew": { "min": 8200, "max": 9400 },
+    "priceRangeUsed": { "min": 6200, "max": 7100 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-015",
+    "slug": "corsair-sf750",
+    "name": "Corsair SF750",
+    "wattage": 750,
+    "certification": "80+ Platinum",
+    "isModular": true,
+    "priceRangeNew": { "min": 8600, "max": 9800 },
+    "priceRangeUsed": { "min": 6600, "max": 7500 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "psu-016",
+    "slug": "xpg-core-reactor-650",
+    "name": "XPG Core Reactor 650W",
+    "wattage": 650,
+    "certification": "80+ Gold",
+    "isModular": true,
+    "priceRangeNew": { "min": 3800, "max": 4400 },
+    "priceRangeUsed": { "min": 2850, "max": 3300 },
+    "lastUpdated": "2026-08-09"
   }
 ]

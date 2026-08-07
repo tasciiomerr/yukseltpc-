@@ -8,7 +8,7 @@
     "heightMm": 159,
     "priceRangeNew": { "min": 1200, "max": 1500 },
     "priceRangeUsed": { "min": 800, "max": 1000 },
-    "lastUpdated": "2026-08-06"
+    "lastUpdated": "2026-08-09"
   },
   {
     "id": "cooler-002",
@@ -19,6 +19,149 @@
     "heightMm": 52,
     "priceRangeNew": { "min": 4200, "max": 5000 },
     "priceRangeUsed": { "min": 3000, "max": 3600 },
-    "lastUpdated": "2026-08-06"
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-003",
+    "slug": "deepcool-ak620",
+    "name": "Deepcool AK620",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200", "LGA1851"],
+    "heightMm": 160,
+    "priceRangeNew": { "min": 2400, "max": 2900 },
+    "priceRangeUsed": { "min": 1750, "max": 2100 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-004",
+    "slug": "noctua-nh-d15",
+    "name": "Noctua NH-D15",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200", "LGA1851"],
+    "heightMm": 165,
+    "priceRangeNew": { "min": 4600, "max": 5300 },
+    "priceRangeUsed": { "min": 3400, "max": 3900 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-005",
+    "slug": "bequiet-dark-rock-4",
+    "name": "be quiet! Dark Rock 4",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200"],
+    "heightMm": 159,
+    "priceRangeNew": { "min": 3200, "max": 3700 },
+    "priceRangeUsed": { "min": 2300, "max": 2700 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-006",
+    "slug": "noctua-nh-u12s",
+    "name": "Noctua NH-U12S",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200"],
+    "heightMm": 158,
+    "priceRangeNew": { "min": 2600, "max": 3000 },
+    "priceRangeUsed": { "min": 1900, "max": 2250 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-007",
+    "slug": "thermalright-peerless-assassin-120-se",
+    "name": "Thermalright Peerless Assassin 120 SE",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200"],
+    "heightMm": 157,
+    "priceRangeNew": { "min": 1300, "max": 1600 },
+    "priceRangeUsed": { "min": 900, "max": 1150 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-008",
+    "slug": "id-cooling-se-224-xt",
+    "name": "ID-Cooling SE-224-XT",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200"],
+    "heightMm": 154,
+    "priceRangeNew": { "min": 750, "max": 950 },
+    "priceRangeUsed": { "min": 500, "max": 650 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-009",
+    "slug": "corsair-icue-h100i-elite",
+    "name": "Corsair iCUE H100i Elite",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 5200, "max": 6000 },
+    "priceRangeUsed": { "min": 3900, "max": 4500 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-010",
+    "slug": "nzxt-kraken-280",
+    "name": "NZXT Kraken 280",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 5600, "max": 6400 },
+    "priceRangeUsed": { "min": 4200, "max": 4800 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-011",
+    "slug": "corsair-icue-h150i-elite",
+    "name": "Corsair iCUE H150i Elite",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 6600, "max": 7600 },
+    "priceRangeUsed": { "min": 5000, "max": 5700 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-012",
+    "slug": "lian-li-galahad-ii-360",
+    "name": "Lian Li Galahad II 360",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 6000, "max": 6900 },
+    "priceRangeUsed": { "min": 4500, "max": 5200 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-013",
+    "slug": "asus-rog-ryujin-iii-360",
+    "name": "ASUS ROG Ryujin III 360",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 10500, "max": 12000 },
+    "priceRangeUsed": { "min": 8000, "max": 9200 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-014",
+    "slug": "arctic-liquid-freezer-ii-280",
+    "name": "Arctic Liquid Freezer II 280",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1200"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 3600, "max": 4200 },
+    "priceRangeUsed": { "min": 2700, "max": 3100 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-015",
+    "slug": "noctua-nh-l9a-am5",
+    "name": "Noctua NH-L9a-AM5",
+    "type": "air",
+    "compatibleSockets": ["AM5"],
+    "heightMm": 37,
+    "priceRangeNew": { "min": 1900, "max": 2200 },
+    "priceRangeUsed": { "min": 1350, "max": 1650 },
+    "lastUpdated": "2026-08-09"
   }
 ]

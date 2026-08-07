@@ -9,7 +9,7 @@
     "moduleCount": 2,
     "priceRangeNew": { "min": 1100, "max": 1400 },
     "priceRangeUsed": { "min": 800, "max": 1000 },
-    "lastUpdated": "2026-08-06"
+    "lastUpdated": "2026-08-09"
   },
   {
     "id": "ram-002",
@@ -21,6 +21,174 @@
     "moduleCount": 2,
     "priceRangeNew": { "min": 3400, "max": 3900 },
     "priceRangeUsed": { "min": 2600, "max": 3000 },
-    "lastUpdated": "2026-08-06"
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-003",
+    "slug": "corsair-vengeance-lpx-16gb-ddr4-3600",
+    "name": "Corsair Vengeance LPX 16GB DDR4 3600MHz",
+    "type": "DDR4",
+    "speed": 3600,
+    "capacity": 16,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 1250, "max": 1550 },
+    "priceRangeUsed": { "min": 900, "max": 1150 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-004",
+    "slug": "gskill-ripjaws-v-32gb-ddr4-3200",
+    "name": "G.Skill Ripjaws V 32GB (2x16GB) DDR4 3200MHz",
+    "type": "DDR4",
+    "speed": 3200,
+    "capacity": 32,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 2100, "max": 2500 },
+    "priceRangeUsed": { "min": 1500, "max": 1850 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-005",
+    "slug": "kingston-fury-beast-32gb-ddr4-3600",
+    "name": "Kingston Fury Beast 32GB DDR4 3600MHz",
+    "type": "DDR4",
+    "speed": 3600,
+    "capacity": 32,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 2300, "max": 2700 },
+    "priceRangeUsed": { "min": 1650, "max": 2000 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-006",
+    "slug": "crucial-16gb-ddr4-2666",
+    "name": "Crucial 16GB DDR4 2666MHz",
+    "type": "DDR4",
+    "speed": 2666,
+    "capacity": 16,
+    "moduleCount": 1,
+    "priceRangeNew": { "min": 850, "max": 1050 },
+    "priceRangeUsed": { "min": 600, "max": 780 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-007",
+    "slug": "gskill-trident-z5-32gb-ddr5-6000",
+    "name": "G.Skill Trident Z5 32GB (2x16GB) DDR5 6000MHz",
+    "type": "DDR5",
+    "speed": 6000,
+    "capacity": 32,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 3600, "max": 4100 },
+    "priceRangeUsed": { "min": 2750, "max": 3150 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-008",
+    "slug": "corsair-vengeance-16gb-ddr5-5600",
+    "name": "Corsair Vengeance 16GB DDR5 5600MHz",
+    "type": "DDR5",
+    "speed": 5600,
+    "capacity": 16,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 1900, "max": 2300 },
+    "priceRangeUsed": { "min": 1400, "max": 1700 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-009",
+    "slug": "kingston-fury-beast-32gb-ddr5-5200",
+    "name": "Kingston Fury Beast 32GB DDR5 5200MHz",
+    "type": "DDR5",
+    "speed": 5200,
+    "capacity": 32,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 3200, "max": 3700 },
+    "priceRangeUsed": { "min": 2400, "max": 2800 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-010",
+    "slug": "gskill-flare-x5-32gb-ddr5-6000",
+    "name": "G.Skill Flare X5 32GB (2x16GB) DDR5 6000MHz",
+    "type": "DDR5",
+    "speed": 6000,
+    "capacity": 32,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 3700, "max": 4200 },
+    "priceRangeUsed": { "min": 2800, "max": 3200 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-011",
+    "slug": "corsair-dominator-platinum-32gb-ddr5-6200",
+    "name": "Corsair Dominator Platinum 32GB (2x16GB) DDR5 6200MHz",
+    "type": "DDR5",
+    "speed": 6200,
+    "capacity": 32,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 5400, "max": 6200 },
+    "priceRangeUsed": { "min": 4100, "max": 4700 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-012",
+    "slug": "crucial-32gb-ddr5-4800",
+    "name": "Crucial 32GB (2x16GB) DDR5 4800MHz",
+    "type": "DDR5",
+    "speed": 4800,
+    "capacity": 32,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 2600, "max": 3000 },
+    "priceRangeUsed": { "min": 1950, "max": 2300 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-013",
+    "slug": "teamgroup-t-force-delta-rgb-16gb-ddr4-3200",
+    "name": "TeamGroup T-Force Delta RGB 16GB (2x8GB) DDR4 3200MHz",
+    "type": "DDR4",
+    "speed": 3200,
+    "capacity": 16,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 1200, "max": 1500 },
+    "priceRangeUsed": { "min": 850, "max": 1100 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-014",
+    "slug": "kingston-fury-renegade-32gb-ddr5-6400",
+    "name": "Kingston Fury Renegade 32GB (2x16GB) DDR5 6400MHz",
+    "type": "DDR5",
+    "speed": 6400,
+    "capacity": 32,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 4300, "max": 4900 },
+    "priceRangeUsed": { "min": 3300, "max": 3800 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-015",
+    "slug": "corsair-vengeance-64gb-ddr5-5600",
+    "name": "Corsair Vengeance 64GB (2x32GB) DDR5 5600MHz",
+    "type": "DDR5",
+    "speed": 5600,
+    "capacity": 64,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 6800, "max": 7800 },
+    "priceRangeUsed": { "min": 5200, "max": 6000 },
+    "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "ram-016",
+    "slug": "gskill-ripjaws-s5-32gb-ddr5-5600",
+    "name": "G.Skill Ripjaws S5 32GB (2x16GB) DDR5 5600MHz",
+    "type": "DDR5",
+    "speed": 5600,
+    "capacity": 32,
+    "moduleCount": 2,
+    "priceRangeNew": { "min": 3100, "max": 3600 },
+    "priceRangeUsed": { "min": 2350, "max": 2700 },
+    "lastUpdated": "2026-08-09"
   }
 ]
