@@ -17,8 +17,8 @@ export default function KvkkPage() {
       <h1 className="mt-4 text-2xl font-bold sm:text-3xl">
         KVKK Aydınlatma Metni
       </h1>
-      <p className="mt-2 text-sm text-black/60 dark:text-white/60">
-        Son güncelleme: 2026-08-06
+      <p className="mt-2 text-sm text-foreground/60">
+        Son güncelleme: 2026-08-08
       </p>
 
       <div className="prose prose-neutral mt-8 max-w-none dark:prose-invert">
@@ -43,7 +43,11 @@ export default function KvkkPage() {
           <li>
             Google Analytics aracılığıyla toplanan anonimleştirilmiş kullanım
             verileri (IP adresinden türetilen yaklaşık konum, cihaz/tarayıcı
-            bilgisi, ziyaret edilen sayfalar).
+            bilgisi, ziyaret edilen sayfalar) —{" "}
+            <strong>
+              yalnızca çerez onay bandında &quot;Kabul Et&quot; seçtiğinizde
+            </strong>{" "}
+            toplanmaya başlar; onay vermediğiniz sürece bu veriler hiç işlenmez.
           </li>
         </ul>
 

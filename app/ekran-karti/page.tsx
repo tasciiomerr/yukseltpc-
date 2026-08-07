@@ -30,7 +30,7 @@ export default function EkranKartiPage() {
         modellerin sayfasında uyumlu kasaları görebilir,{" "}
         <Link
           href="/uyumluluk-araci"
-          className="text-primary-accent hover:underline"
+          className="text-primary-accent underline underline-offset-2"
         >
           uyumluluk aracıyla
         </Link>{" "}

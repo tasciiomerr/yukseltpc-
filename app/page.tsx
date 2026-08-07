@@ -148,7 +148,7 @@ export default function Home() {
           </h2>
           <Link
             href="/rehber"
-            className="text-sm font-medium text-primary-accent hover:underline"
+            className="text-sm font-medium text-primary-accent underline underline-offset-2"
           >
             Tümünü gör →
           </Link>

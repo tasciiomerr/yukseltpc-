@@ -31,7 +31,7 @@ export default function AnakartPage() {
         Aşağıdaki modelleri karşılaştırın veya{" "}
         <Link
           href="/uyumluluk-araci"
-          className="text-primary-accent hover:underline"
+          className="text-primary-accent underline underline-offset-2"
         >
           uyumluluk aracıyla
         </Link>{" "}

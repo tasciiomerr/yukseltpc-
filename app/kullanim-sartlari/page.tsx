@@ -15,7 +15,7 @@ export default function KullanimSartlariPage() {
     <div className="mx-auto max-w-3xl px-4 py-10">
       <Breadcrumb items={[{ label: "Kullanım Şartları" }]} />
       <h1 className="mt-4 text-2xl font-bold sm:text-3xl">Kullanım Şartları</h1>
-      <p className="mt-2 text-sm text-black/60 dark:text-white/60">
+      <p className="mt-2 text-sm text-foreground/60">
         Son güncelleme: 2026-08-06
       </p>
 

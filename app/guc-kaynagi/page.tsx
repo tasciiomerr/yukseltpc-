@@ -29,7 +29,7 @@ export default function GucKaynagiPage() {
         kartınızın TDP değerlerine göre{" "}
         <Link
           href="/uyumluluk-araci"
-          className="text-primary-accent hover:underline"
+          className="text-primary-accent underline underline-offset-2"
         >
           uyumluluk aracındaki hesaplayıcıyla
         </Link>{" "}

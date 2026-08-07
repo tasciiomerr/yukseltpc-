@@ -31,7 +31,7 @@ export default function IslemciPage() {
         sayfasında veya{" "}
         <Link
           href="/uyumluluk-araci"
-          className="text-primary-accent hover:underline"
+          className="text-primary-accent underline underline-offset-2"
         >
           uyumluluk aracında
         </Link>{" "}

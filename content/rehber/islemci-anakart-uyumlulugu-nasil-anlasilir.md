@@ -27,7 +27,7 @@ Soket, işlemcinin anakart üzerine fiziksel olarak takıldığı bağlantı nok
 - **AM4:** Ryzen 1000'den 5000 serisine kadar (ve bazı 5000G/PRO modelleri dahil) çoğu masaüstü Ryzen işlemcisini kapsayan, uzun ömürlü bir sokettir. [AMD Ryzen 5 5600](/islemci/amd-ryzen-5-5600) gibi işlemciler AM4 soketini kullanır ve DDR4 bellek ile çalışır.
 - **AM5:** Ryzen 7000 ve sonrası yeni nesil işlemcilerin kullandığı sokettir; yalnızca DDR5 bellek destekler.
 
-AM4 ve AM5 birbiriyle **fiziksel olarak uyumlu değildir** — AM4 için alınan bir soğutucu bile bazı durumlarda AM5'te farklı montaj kiti gerektirebilir (though çoğu hava soğutucusunda üretici AM5 için de uyumlu montaj kiti sunar).
+AM4 ve AM5 birbiriyle **fiziksel olarak uyumlu değildir** — AM4 için alınan bir soğutucu bile bazı durumlarda AM5'te farklı montaj kiti gerektirebilir (yine de çoğu hava soğutucusunda üretici AM5 için de uyumlu montaj kiti sunar).
 
 ### Intel Tarafı
 

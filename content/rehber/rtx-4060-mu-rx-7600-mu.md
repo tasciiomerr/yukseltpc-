@@ -69,7 +69,7 @@ RX 7600'ün daha yüksek TDP'si (165W'a karşı 115W), aynı soğutma çözümü
 
 Hangi kartı seçerseniz seçin, satın almadan önce iki şeyi doğrulayın:
 
-1. **Kasanıza fiziksel olarak sığıyor mu?** (210mm vs 244mm farkı bazı kompakt kasalarda belirleyici olabilir.)
+1. **Kasanıza fiziksel olarak sığıyor mu?** (210mm ile 244mm arasındaki fark bazı kompakt kasalarda belirleyici olabilir.)
 2. **Güç kaynağınız yeterli mi?** Örneğin [Corsair CV550](/guc-kaynagi/corsair-cv550) gibi 550W'lık bir güç kaynağı her iki kart için de genellikle yeterlidir, ama sisteminizin diğer bileşenlerine göre kesin sonucu [uyumluluk aracımızdan](/uyumluluk-araci) doğrulayın.
 
 ## Özet

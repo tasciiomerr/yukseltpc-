@@ -27,7 +27,7 @@ export default function CookieConsent() {
           gösterebilmek için çerezler kullanıyoruz. Detaylar için{" "}
           <Link
             href="/cerez-politikasi"
-            className="text-primary-accent hover:underline"
+            className="text-primary-accent underline underline-offset-2"
           >
             Çerez Politikası
           </Link>

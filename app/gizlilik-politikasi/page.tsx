@@ -17,8 +17,8 @@ export default function GizlilikPolitikasiPage() {
       <h1 className="mt-4 text-2xl font-bold sm:text-3xl">
         Gizlilik Politikası
       </h1>
-      <p className="mt-2 text-sm text-black/60 dark:text-white/60">
-        Son güncelleme: 2026-08-06
+      <p className="mt-2 text-sm text-foreground/60">
+        Son güncelleme: 2026-08-08
       </p>
 
       <div className="prose prose-neutral mt-8 max-w-none dark:prose-invert">
@@ -60,7 +60,14 @@ export default function GizlilikPolitikasiPage() {
         <h2>Üçüncü Taraf Hizmetler</h2>
         <p>
           Sitemiz Google Analytics ve Google AdSense gibi üçüncü taraf
-          hizmetleri kullanır. Bu hizmetler kendi gizlilik politikalarına tabi
+          hizmetleri kullanır. Bu hizmetlere ait scriptler yalnızca çerez onay
+          bandında <strong>&quot;Kabul Et&quot;</strong> seçtiğinizde yüklenir;
+          onay vermediğiniz sürece (bandı kapatmasanız veya &quot;Reddet&quot;
+          seçseniz de) bu hizmetler hiç çalışmaz ve veri toplamaz. Tercihiniz
+          tarayıcınızın yerel depolama alanında (localStorage) saklanır —
+          sunucularımıza gönderilmez. Detaylar için{" "}
+          <Link href="/cerez-politikasi">Çerez Politikası</Link> sayfamızı
+          inceleyebilirsiniz. Bu hizmetler kendi gizlilik politikalarına tabi
           çerezler kullanabilir. Google&apos;ın veri kullanımı hakkında daha
           fazla bilgi için{" "}
           <a

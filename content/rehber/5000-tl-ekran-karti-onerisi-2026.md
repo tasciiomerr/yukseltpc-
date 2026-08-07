@@ -62,7 +62,7 @@ Eğer 5.000 TL'lik bütçeniz esnek değilse ve mevcut sisteminizde ekran kartı
 
 Hangi bütçeyle alırsanız alın, satın almadan önce mutlaka:
 
-1. **Kasanıza fiziksel olarak sığıp sığmadığını** kontrol edin (kart uzunluğu vs. kasa maksimum GPU uzunluğu).
+1. **Kasanıza fiziksel olarak sığıp sığmadığını** kontrol edin (kart uzunluğunu kasanın maksimum GPU uzunluğuyla karşılaştırın).
 2. **Güç kaynağınızın yeterli olduğunu** doğrulayın.
 
 Her iki kontrolü de [uyumluluk aracımızla](/uyumluluk-araci) saniyeler içinde yapabilirsiniz.

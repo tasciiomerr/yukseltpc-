@@ -15,8 +15,8 @@ export default function CerezPolitikasiPage() {
     <div className="mx-auto max-w-3xl px-4 py-10">
       <Breadcrumb items={[{ label: "Çerez Politikası" }]} />
       <h1 className="mt-4 text-2xl font-bold sm:text-3xl">Çerez Politikası</h1>
-      <p className="mt-2 text-sm text-black/60 dark:text-white/60">
-        Son güncelleme: 2026-08-06
+      <p className="mt-2 text-sm text-foreground/60">
+        Son güncelleme: 2026-08-08
       </p>
 
       <div className="prose prose-neutral mt-8 max-w-none dark:prose-invert">
@@ -43,7 +43,30 @@ export default function CerezPolitikasiPage() {
           </li>
         </ul>
 
-        <h2>Çerez Tercihlerinizi Yönetme</h2>
+        <h2>Onay Mekanizmamız Nasıl Çalışır?</h2>
+        <p>
+          Siteyi ilk ziyaretinizde ekranın altında bir çerez onay bandı
+          görürsünüz.{" "}
+          <strong>
+            Analitik (Google Analytics) ve reklam (Google AdSense) çerezleri,
+            yalnızca bu bantta &quot;Kabul Et&quot; seçtiğinizde yüklenir.
+          </strong>{" "}
+          &quot;Reddet&quot; seçerseniz veya bandı kapatmadan siteyi kullanmaya
+          devam ederseniz, bu üçüncü taraf scriptleri hiç çalışmaz ve ilgili
+          çerezler cihazınıza kaydedilmez — yalnızca sitenin temel işlevleri
+          için gerekli zorunlu veriler kullanılır. Tercihiniz, cihazınızda çerez
+          olarak değil, tarayıcınızın yerel depolama alanında (localStorage)
+          saklanır ve sunucularımıza gönderilmez.
+        </p>
+        <p>
+          Tercihinizi değiştirmek isterseniz, tarayıcınızın site verilerini
+          (yerel depolama alanını) bu sitenin adresi için temizleyerek onay
+          bandını yeniden görebilirsiniz — adım adım yöntem tarayıcınıza göre
+          değişir, genellikle site ayarları veya gizlilik menüsünden
+          erişilebilir.
+        </p>
+
+        <h2>Tarayıcı Çerez Ayarları</h2>
         <p>
           Çoğu tarayıcı, çerezleri kabul etme veya reddetme konusunda size
           kontrol sağlar. Tarayıcınızın ayarlar menüsünden çerezleri silebilir

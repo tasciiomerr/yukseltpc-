@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { type Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
 import AdSlot from "@/components/AdSlot";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
@@ -13,6 +14,15 @@ import { absoluteUrl, buildArticleSchema } from "@/lib/seo";
 interface PageParams {
   slug: string;
 }
+
+/** Tabloları mobilde taşmayı önlemek için yatay kaydırılabilir bir kapsayıcıya sarar. */
+const markdownComponents: Components = {
+  table: ({ children }) => (
+    <div className="overflow-x-auto">
+      <table>{children}</table>
+    </div>
+  ),
+};
 
 /** Markdown içeriğini blok (boş satır) sınırlarında ortadan ikiye böler. */
 function splitMarkdownInHalf(content: string): [string, string] {
@@ -91,13 +101,23 @@ export default async function RehberDetailPage({
         return (
           <>
             <article className="prose prose-neutral mt-8 max-w-none dark:prose-invert">
-              <ReactMarkdown>{firstHalf}</ReactMarkdown>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={markdownComponents}
+              >
+                {firstHalf}
+              </ReactMarkdown>
             </article>
             <div className="not-prose my-8">
               <AdSlot slotId={`rehber-mid-${guide.slug}`} />
             </div>
             <article className="prose prose-neutral max-w-none dark:prose-invert">
-              <ReactMarkdown>{secondHalf}</ReactMarkdown>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={markdownComponents}
+              >
+                {secondHalf}
+              </ReactMarkdown>
             </article>
           </>
         );

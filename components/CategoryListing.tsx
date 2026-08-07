@@ -31,6 +31,7 @@ export default function CategoryListing({
 
   return (
     <div>
+      <h2 className="sr-only">{category.labelPlural} Listesi</h2>
       {category.filter && (
         <div className="mb-6 flex items-center gap-2">
           <label
