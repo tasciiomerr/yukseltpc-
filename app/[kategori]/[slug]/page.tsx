@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import AdSlot from "@/components/AdSlot";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
 import ProductCard from "@/components/ProductCard";
@@ -124,6 +125,10 @@ export default async function ProductDetailPage({
           <SpecTable item={product} fields={category.specFields} />
         </div>
       </section>
+
+      <div className="mt-8">
+        <AdSlot slotId={`product-${category.slug}-${product.slug}`} />
+      </div>
 
       <section className="mt-8">
         <h2 className="text-lg font-semibold">Satın Al</h2>

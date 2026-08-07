@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "@/components/AdSlot";
 import { ButtonLink } from "@/components/Button";
 import JsonLd from "@/components/JsonLd";
 import { categories } from "@/lib/categories";
@@ -135,6 +136,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-6xl px-4 py-8">
+        <AdSlot slotId="home-mid" />
+      </div>
 
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="flex items-center justify-between">

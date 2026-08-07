@@ -1,8 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { getCategory } from "@/lib/categories";
+import AdSlot from "./AdSlot";
 import ProductCard from "./ProductCard";
+
+const AD_INTERVAL = 6;
 
 export default function CategoryListing({
   categorySlug,
@@ -66,13 +69,21 @@ export default function CategoryListing({
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredItems.map((item) => (
-            <ProductCard
-              key={item.slug}
-              product={item}
-              categorySlug={category.slug}
-            />
-          ))}
+          {filteredItems.map((item, index) => {
+            const isAdRow =
+              (index + 1) % AD_INTERVAL === 0 &&
+              index !== filteredItems.length - 1;
+            return (
+              <Fragment key={item.slug}>
+                <ProductCard product={item} categorySlug={category.slug} />
+                {isAdRow && (
+                  <div className="col-span-full">
+                    <AdSlot slotId={`category-${category.slug}-${index}`} />
+                  </div>
+                )}
+              </Fragment>
+            );
+          })}
         </div>
       )}
     </div>

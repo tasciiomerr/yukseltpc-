@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import AdSlot from "@/components/AdSlot";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
 import ProductCard from "@/components/ProductCard";
@@ -11,6 +12,16 @@ import { absoluteUrl, buildArticleSchema } from "@/lib/seo";
 
 interface PageParams {
   slug: string;
+}
+
+/** Markdown içeriğini blok (boş satır) sınırlarında ortadan ikiye böler. */
+function splitMarkdownInHalf(content: string): [string, string] {
+  const blocks = content.split(/\n\n+/);
+  const midpoint = Math.ceil(blocks.length / 2);
+  return [
+    blocks.slice(0, midpoint).join("\n\n"),
+    blocks.slice(midpoint).join("\n\n"),
+  ];
 }
 
 export function generateStaticParams(): PageParams[] {
@@ -75,9 +86,26 @@ export default async function RehberDetailPage({
         Son güncelleme: {guide.date}
       </p>
 
-      <article className="prose prose-neutral mt-8 max-w-none dark:prose-invert">
-        <ReactMarkdown>{guide.content}</ReactMarkdown>
-      </article>
+      {(() => {
+        const [firstHalf, secondHalf] = splitMarkdownInHalf(guide.content);
+        return (
+          <>
+            <article className="prose prose-neutral mt-8 max-w-none dark:prose-invert">
+              <ReactMarkdown>{firstHalf}</ReactMarkdown>
+            </article>
+            <div className="not-prose my-8">
+              <AdSlot slotId={`rehber-mid-${guide.slug}`} />
+            </div>
+            <article className="prose prose-neutral max-w-none dark:prose-invert">
+              <ReactMarkdown>{secondHalf}</ReactMarkdown>
+            </article>
+          </>
+        );
+      })()}
+
+      <div className="my-8">
+        <AdSlot slotId={`rehber-end-${guide.slug}`} />
+      </div>
 
       {relatedGuides.length > 0 && (
         <section className="mt-12 border-t border-border-subtle pt-8">
