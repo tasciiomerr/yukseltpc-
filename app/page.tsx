@@ -1,7 +1,45 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
+import JsonLd from "@/components/JsonLd";
 import { categories } from "@/lib/categories";
 import { getAllGuides } from "@/lib/guides";
+import {
+  absoluteUrl,
+  buildFaqSchema,
+  buildWebsiteSchema,
+  type FaqItem,
+} from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "YükseltPC — Bilgisayarınızı Bilinçli Şekilde Yükseltin",
+  description:
+    "Hangi parça hangisiyle uyumlu, ne almalısınız? Uyumluluk aracı, rehberler ve güncel fiyat aralıklarıyla YükseltPC yanınızda.",
+  alternates: { canonical: absoluteUrl("/") },
+};
+
+const faqItems: FaqItem[] = [
+  {
+    question: "YükseltPC kullanmak ücretsiz mi?",
+    answer:
+      "Evet. Uyumluluk aracı, karşılaştırma aracı ve tüm rehber içerikleri tamamen ücretsizdir, üyelik gerektirmez.",
+  },
+  {
+    question: "Uyumluluk aracı nasıl çalışır?",
+    answer:
+      "İşlemci, anakart, RAM, ekran kartı, güç kaynağı, kasa ve soğutucunuzu seçtiğinizde; soket, RAM tipi, fiziksel ölçüler ve güç yeterliliği gibi kriterlere göre otomatik olarak uyumlu olup olmadıklarını gösterir.",
+  },
+  {
+    question: "Fiyat bilgileri güncel mi?",
+    answer:
+      "Fiyatlar gerçek zamanlı değildir; periyodik olarak güncellenen makul bir aralık gösterir. Kesin ve güncel fiyat için ürün sayfasındaki satıcı linklerini kullanabilirsiniz.",
+  },
+  {
+    question: "Sıfır mı yoksa 2. el mi almalıyım?",
+    answer:
+      "Bu, bütçenize ve risk toleransınıza bağlıdır. Genel karşılaştırma için 'Sıfır mı 2. El mi Almalı?' rehberimize göz atabilir, her ürün sayfasında her iki seçeneğin fiyat aralığını görebilirsiniz.",
+  },
+];
 
 const steps = [
   {
@@ -29,6 +67,8 @@ export default function Home() {
 
   return (
     <div>
+      <JsonLd data={buildWebsiteSchema()} />
+      <JsonLd data={buildFaqSchema(faqItems)} />
       <section className="border-b border-border-subtle bg-gradient-to-b from-primary-50 to-background">
         <div className="mx-auto flex max-w-6xl flex-col items-center px-4 py-20 text-center sm:py-28">
           <span className="rounded-full bg-primary-100 px-3 py-1 text-xs font-semibold text-primary-accent">
@@ -121,6 +161,26 @@ export default function Home() {
               </p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-border-subtle bg-surface">
+        <div className="mx-auto max-w-3xl px-4 py-16">
+          <h2 className="font-heading text-2xl font-bold">
+            Sık Sorulan Sorular
+          </h2>
+          <div className="mt-6 flex flex-col gap-6">
+            {faqItems.map((item) => (
+              <div key={item.question}>
+                <h3 className="font-semibold text-foreground">
+                  {item.question}
+                </h3>
+                <p className="mt-1.5 text-sm text-foreground/70">
+                  {item.answer}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

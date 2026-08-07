@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "KVKK Aydınlatma Metni | YükseltPC",
   description:
     "6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında YükseltPC aydınlatma metni.",
+  alternates: { canonical: absoluteUrl("/kvkk") },
 };
 
 export default function KvkkPage() {

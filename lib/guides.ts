@@ -2,10 +2,19 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 
+export interface RelatedProductRef {
+  kategori: string;
+  slug: string;
+}
+
 export interface GuideFrontmatter {
   title: string;
+  seoTitle?: string;
   description: string;
   date: string;
+  keyword?: string;
+  relatedGuides?: string[];
+  relatedProducts?: RelatedProductRef[];
 }
 
 export interface Guide extends GuideFrontmatter {

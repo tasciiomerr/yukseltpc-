@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import Breadcrumb from "@/components/Breadcrumb";
+import JsonLd from "@/components/JsonLd";
+import ProductCard from "@/components/ProductCard";
+import { findProductBySlug } from "@/lib/categories";
 import { getAllGuides, getGuideBySlug } from "@/lib/guides";
+import { absoluteUrl, buildArticleSchema } from "@/lib/seo";
 
 interface PageParams {
   slug: string;
@@ -23,8 +28,9 @@ export async function generateMetadata({
     return { title: "Rehber Bulunamadı | YükseltPC" };
   }
   return {
-    title: `${guide.title} | YükseltPC`,
+    title: `${guide.seoTitle ?? guide.title} | YükseltPC`,
     description: guide.description,
+    alternates: { canonical: absoluteUrl(`/rehber/${guide.slug}`) },
   };
 }
 
@@ -37,8 +43,27 @@ export default async function RehberDetailPage({
   const guide = getGuideBySlug(slug);
   if (!guide) notFound();
 
+  const relatedGuides = (guide.relatedGuides ?? [])
+    .map((relatedSlug) => getGuideBySlug(relatedSlug))
+    .filter((g): g is NonNullable<typeof g> => Boolean(g));
+
+  const relatedProducts = (guide.relatedProducts ?? [])
+    .map((ref) => ({
+      product: findProductBySlug(ref.kategori, ref.slug),
+      kategori: ref.kategori,
+    }))
+    .filter(
+      (
+        entry,
+      ): entry is {
+        product: NonNullable<typeof entry.product>;
+        kategori: string;
+      } => Boolean(entry.product),
+    );
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <JsonLd data={buildArticleSchema(guide)} />
       <Breadcrumb
         items={[
           { label: "Rehberler", href: "/rehber" },
@@ -46,13 +71,50 @@ export default async function RehberDetailPage({
         ]}
       />
       <h1 className="mt-4 text-2xl font-bold sm:text-3xl">{guide.title}</h1>
-      <p className="mt-2 text-sm text-black/60 dark:text-white/60">
+      <p className="mt-2 text-sm text-foreground/60">
         Son güncelleme: {guide.date}
       </p>
 
       <article className="prose prose-neutral mt-8 max-w-none dark:prose-invert">
         <ReactMarkdown>{guide.content}</ReactMarkdown>
       </article>
+
+      {relatedGuides.length > 0 && (
+        <section className="mt-12 border-t border-border-subtle pt-8">
+          <h2 className="font-heading text-lg font-semibold">
+            İlgili Rehberler
+          </h2>
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {relatedGuides.map((related) => (
+              <Link
+                key={related.slug}
+                href={`/rehber/${related.slug}`}
+                className="block rounded-xl border border-border-subtle bg-background p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary-500/40 hover:shadow-md"
+              >
+                <h3 className="font-medium text-foreground">{related.title}</h3>
+                <p className="mt-1.5 text-sm text-foreground/60">
+                  {related.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {relatedProducts.length > 0 && (
+        <section className="mt-10 border-t border-border-subtle pt-8">
+          <h2 className="font-heading text-lg font-semibold">İlgili Ürünler</h2>
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {relatedProducts.map(({ product, kategori }) => (
+              <ProductCard
+                key={`${kategori}-${product.slug}`}
+                product={product}
+                categorySlug={kategori}
+              />
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

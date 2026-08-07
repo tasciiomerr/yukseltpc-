@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Kullanım Şartları | YükseltPC",
   description:
     "YükseltPC'yi kullanırken geçerli olan kullanım şartları ve sorumluluk sınırlamaları.",
+  alternates: { canonical: absoluteUrl("/kullanim-sartlari") },
 };
 
 export default function KullanimSartlariPage() {

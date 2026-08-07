@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Gizlilik Politikası | YükseltPC",
   description:
     "YükseltPC gizlilik politikası: hangi verileri topluyoruz, nasıl kullanıyoruz ve haklarınız nelerdir.",
+  alternates: { canonical: absoluteUrl("/gizlilik-politikasi") },
 };
 
 export default function GizlilikPolitikasiPage() {

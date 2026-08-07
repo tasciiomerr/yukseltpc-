@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { buildBreadcrumbSchema } from "@/lib/seo";
+import JsonLd from "./JsonLd";
 
 export interface BreadcrumbItem {
   label: string;
@@ -13,6 +15,7 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
 
   return (
     <nav aria-label="Gezinme yolu" className="text-sm">
+      <JsonLd data={buildBreadcrumbSchema(allItems)} />
       <ol className="flex flex-wrap items-center gap-1 text-foreground/50">
         {allItems.map((item, index) => {
           const isLast = index === allItems.length - 1;

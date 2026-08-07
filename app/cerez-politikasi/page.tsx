@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Çerez Politikası | YükseltPC",
   description:
     "YükseltPC'de kullanılan çerez türleri ve çerez tercihlerinizi nasıl yönetebileceğiniz.",
+  alternates: { canonical: absoluteUrl("/cerez-politikasi") },
 };
 
 export default function CerezPolitikasiPage() {

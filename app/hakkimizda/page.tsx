@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import JsonLd from "@/components/JsonLd";
+import { absoluteUrl, buildOrganizationSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Hakkımızda | YükseltPC",
   description:
     "YükseltPC, bilgisayarını bilinçli şekilde yükseltmek isteyenler için uyumluluk kontrolü ve rehberlik sunar.",
+  alternates: { canonical: absoluteUrl("/hakkimizda") },
 };
 
 export default function HakkimizdaPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <JsonLd data={buildOrganizationSchema()} />
       <Breadcrumb items={[{ label: "Hakkımızda" }]} />
       <h1 className="mt-4 text-2xl font-bold sm:text-3xl">Hakkımızda</h1>
 
