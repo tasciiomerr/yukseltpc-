@@ -9,6 +9,9 @@ const QUERY_KEYS = {
   productB: "b",
 } as const;
 
+const selectClassName =
+  "rounded-lg border border-border-subtle bg-background px-3 py-2 text-sm shadow-sm focus:border-primary-500 focus:outline-none";
+
 function formatPriceRange(range: { min: number; max: number }): string {
   return `${range.min.toLocaleString("tr-TR")}-${range.max.toLocaleString("tr-TR")} TL`;
 }
@@ -52,22 +55,27 @@ export default function Karsilastir() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
-      <h1 className="text-2xl font-bold sm:text-3xl">Ürün Karşılaştır</h1>
-      <p className="mt-2 text-sm text-black/60 dark:text-white/60">
+      <h1 className="font-heading text-2xl font-bold sm:text-3xl">
+        Ürün Karşılaştır
+      </h1>
+      <p className="mt-2 text-sm text-foreground/60">
         Aynı kategoriden iki ürünü seçip özelliklerini yan yana karşılaştırın.
         Sonuç linkini paylaşabilirsiniz.
       </p>
 
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-end">
+      <div className="mt-6 flex flex-col gap-4 rounded-xl border border-border-subtle bg-surface p-5 sm:flex-row sm:items-end">
         <div className="flex flex-col gap-1">
-          <label htmlFor="karsilastir-kategori" className="text-sm font-medium">
+          <label
+            htmlFor="karsilastir-kategori"
+            className="text-sm font-medium text-foreground/70"
+          >
             Kategori
           </label>
           <select
             id="karsilastir-kategori"
             value={category.slug}
             onChange={(event) => handleCategoryChange(event.target.value)}
-            className="rounded-md border border-black/15 bg-white px-3 py-2 text-sm dark:border-white/15 dark:bg-black"
+            className={selectClassName}
           >
             {categories.map((c) => (
               <option key={c.slug} value={c.slug}>
@@ -78,7 +86,10 @@ export default function Karsilastir() {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label htmlFor="karsilastir-a" className="text-sm font-medium">
+          <label
+            htmlFor="karsilastir-a"
+            className="text-sm font-medium text-foreground/70"
+          >
             1. Ürün
           </label>
           <select
@@ -87,7 +98,7 @@ export default function Karsilastir() {
             onChange={(event) =>
               updateQuery({ [QUERY_KEYS.productA]: event.target.value })
             }
-            className="rounded-md border border-black/15 bg-white px-3 py-2 text-sm dark:border-white/15 dark:bg-black"
+            className={selectClassName}
           >
             <option value="">Seçilmedi</option>
             {category.items.map((item) => (
@@ -99,7 +110,10 @@ export default function Karsilastir() {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label htmlFor="karsilastir-b" className="text-sm font-medium">
+          <label
+            htmlFor="karsilastir-b"
+            className="text-sm font-medium text-foreground/70"
+          >
             2. Ürün
           </label>
           <select
@@ -108,7 +122,7 @@ export default function Karsilastir() {
             onChange={(event) =>
               updateQuery({ [QUERY_KEYS.productB]: event.target.value })
             }
-            className="rounded-md border border-black/15 bg-white px-3 py-2 text-sm dark:border-white/15 dark:bg-black"
+            className={selectClassName}
           >
             <option value="">Seçilmedi</option>
             {category.items.map((item) => (
@@ -121,57 +135,66 @@ export default function Karsilastir() {
       </div>
 
       {!productA || !productB ? (
-        <p className="mt-8 text-sm text-black/60 dark:text-white/60">
-          Karşılaştırmak için iki ürün seçin.
-        </p>
+        <div className="mt-8 flex flex-col items-center gap-2 rounded-xl border border-dashed border-border-subtle py-16 text-center">
+          <span aria-hidden className="text-3xl">
+            ⚖️
+          </span>
+          <p className="text-sm font-medium text-foreground/70">
+            Karşılaştırmak için iki ürün seçin.
+          </p>
+        </div>
       ) : (
-        <div className="mt-8 overflow-x-auto">
+        <div className="mt-8 overflow-x-auto rounded-xl border border-border-subtle">
           <table className="w-full min-w-[480px] border-collapse text-sm">
             <thead>
-              <tr className="border-b border-black/10 dark:border-white/10">
-                <th className="py-2 pr-4 text-left font-medium text-black/60 dark:text-white/60">
+              <tr className="bg-surface">
+                <th className="px-4 py-3 text-left font-medium text-foreground/60">
                   Özellik
                 </th>
-                <th className="py-2 pr-4 text-left font-semibold">
+                <th className="px-4 py-3 text-left font-heading font-semibold text-primary-accent">
                   {productA.name}
                 </th>
-                <th className="py-2 text-left font-semibold">
+                <th className="px-4 py-3 text-left font-heading font-semibold text-primary-accent">
                   {productB.name}
                 </th>
               </tr>
             </thead>
             <tbody>
-              {category.specFields.map((field) => (
+              {category.specFields.map((field, index) => (
                 <tr
                   key={field.label}
-                  className="border-b border-black/10 last:border-0 dark:border-white/10"
+                  className={index % 2 === 0 ? "bg-background" : "bg-surface"}
                 >
-                  <th className="py-2 pr-4 text-left font-medium text-black/60 dark:text-white/60">
+                  <th className="px-4 py-2.5 text-left font-medium text-foreground/60">
                     {field.label}
                   </th>
-                  <td className="py-2 pr-4">{field.value(productA)}</td>
-                  <td className="py-2">{field.value(productB)}</td>
+                  <td className="px-4 py-2.5 font-medium">
+                    {field.value(productA)}
+                  </td>
+                  <td className="px-4 py-2.5 font-medium">
+                    {field.value(productB)}
+                  </td>
                 </tr>
               ))}
-              <tr className="border-b border-black/10 last:border-0 dark:border-white/10">
-                <th className="py-2 pr-4 text-left font-medium text-black/60 dark:text-white/60">
+              <tr className="bg-primary-50/40">
+                <th className="px-4 py-2.5 text-left font-medium text-foreground/60">
                   Sıfır Fiyat Aralığı
                 </th>
-                <td className="py-2 pr-4">
+                <td className="px-4 py-2.5 font-medium">
                   {formatPriceRange(productA.priceRangeNew)}
                 </td>
-                <td className="py-2">
+                <td className="px-4 py-2.5 font-medium">
                   {formatPriceRange(productB.priceRangeNew)}
                 </td>
               </tr>
-              <tr>
-                <th className="py-2 pr-4 text-left font-medium text-black/60 dark:text-white/60">
+              <tr className="bg-primary-50/40">
+                <th className="px-4 py-2.5 text-left font-medium text-foreground/60">
                   2.el Fiyat Aralığı
                 </th>
-                <td className="py-2 pr-4">
+                <td className="px-4 py-2.5 font-medium">
                   {formatPriceRange(productA.priceRangeUsed)}
                 </td>
-                <td className="py-2">
+                <td className="px-4 py-2.5 font-medium">
                   {formatPriceRange(productB.priceRangeUsed)}
                 </td>
               </tr>

@@ -15,15 +15,25 @@ export default function ProductCard({
   return (
     <Link
       href={`/${categorySlug}/${product.slug}`}
-      className="block rounded-lg border border-black/10 p-4 transition-colors hover:border-black/30 dark:border-white/10 dark:hover:border-white/30"
+      className="group block rounded-xl border border-border-subtle bg-background p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary-500/40 hover:shadow-md"
     >
-      <h3 className="font-medium">{product.name}</h3>
-      <p className="mt-2 text-sm text-black/60 dark:text-white/60">
-        Sıfır: {formatPriceRange(product.priceRangeNew)}
-      </p>
-      <p className="text-sm text-black/60 dark:text-white/60">
-        2.el: {formatPriceRange(product.priceRangeUsed)}
-      </p>
+      <h3 className="font-medium text-foreground group-hover:text-primary-accent">
+        {product.name}
+      </h3>
+      <dl className="mt-3 flex flex-col gap-1 text-sm">
+        <div className="flex items-center justify-between">
+          <dt className="text-foreground/50">Sıfır</dt>
+          <dd className="font-medium text-foreground/80">
+            {formatPriceRange(product.priceRangeNew)}
+          </dd>
+        </div>
+        <div className="flex items-center justify-between">
+          <dt className="text-foreground/50">2.el</dt>
+          <dd className="font-medium text-foreground/80">
+            {formatPriceRange(product.priceRangeUsed)}
+          </dd>
+        </div>
+      </dl>
     </Link>
   );
 }

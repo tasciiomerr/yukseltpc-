@@ -177,13 +177,15 @@ export default function UyumlulukAraci() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
-      <h1 className="text-2xl font-bold sm:text-3xl">Uyumluluk Aracı</h1>
-      <p className="mt-2 text-sm text-black/60 dark:text-white/60">
+      <h1 className="font-heading text-2xl font-bold sm:text-3xl">
+        Uyumluluk Aracı
+      </h1>
+      <p className="mt-2 text-sm text-foreground/60">
         Bileşenlerinizi seçin, uyumluluk sonuçlarını anında görün. Sonuç linkini
         paylaşabilirsiniz.
       </p>
 
-      <section className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="mt-8 grid grid-cols-1 gap-4 rounded-xl border border-border-subtle bg-surface p-5 sm:grid-cols-2 lg:grid-cols-3">
         <ComponentSelect
           label="İşlemci (CPU)"
           value={selectedCpuSlug}
@@ -258,15 +260,17 @@ export default function UyumlulukAraci() {
 
       {selectedProducts.length > 0 && (
         <section className="mt-10">
-          <h2 className="text-xl font-semibold">Satıcı Linkleri</h2>
-          <p className="mt-1 text-sm text-black/60 dark:text-white/60">
+          <h2 className="font-heading text-xl font-semibold">
+            Satıcı Linkleri
+          </h2>
+          <p className="mt-1 text-sm text-foreground/60">
             Seçtiğiniz ürünleri sıfır veya 2.el olarak satıcılarda arayın.
           </p>
           <div className="mt-4 flex flex-col gap-6">
             {selectedProducts.map((product) => (
               <div
                 key={product.slug}
-                className="rounded-lg border border-black/10 p-4 dark:border-white/10"
+                className="rounded-xl border border-border-subtle bg-background p-4 shadow-sm"
               >
                 <h3 className="font-medium">{product.name}</h3>
                 <div className="mt-3">

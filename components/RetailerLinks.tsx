@@ -26,6 +26,51 @@ function trackRetailerLinkClick(retailerName: string, productName: string) {
   });
 }
 
+function RetailerGroup({
+  title,
+  badgeClassName,
+  priceRange,
+  items,
+  productName,
+}: {
+  title: string;
+  badgeClassName: string;
+  priceRange?: PriceRange;
+  items: typeof retailers;
+  productName: string;
+}) {
+  return (
+    <div className="flex-1 rounded-xl border border-border-subtle bg-surface p-4">
+      <div className="flex items-center justify-between gap-2">
+        <span
+          className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${badgeClassName}`}
+        >
+          {title}
+        </span>
+        {priceRange && (
+          <span className="text-sm font-medium text-foreground/70">
+            {formatPriceRange(priceRange)}
+          </span>
+        )}
+      </div>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {items.map((retailer) => (
+          <a
+            key={retailer.id}
+            href={buildRetailerUrl(retailer, productName)}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            onClick={() => trackRetailerLinkClick(retailer.name, productName)}
+            className="rounded-lg border border-border-subtle bg-background px-3 py-1.5 text-sm font-medium text-foreground/80 shadow-sm transition-colors hover:border-primary-500/50 hover:text-primary-accent"
+          >
+            {retailer.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function RetailerLinks({
   productName,
   priceRangeNew,
@@ -35,56 +80,21 @@ export default function RetailerLinks({
   const usedRetailers = retailers.filter((r) => r.category === "ikinci-el");
 
   return (
-    <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
-      <div className="flex-1">
-        <div className="flex items-baseline justify-between gap-2">
-          <h4 className="text-sm font-semibold">Sıfır</h4>
-          {priceRangeNew && (
-            <span className="text-xs text-black/60 dark:text-white/60">
-              {formatPriceRange(priceRangeNew)}
-            </span>
-          )}
-        </div>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {newRetailers.map((retailer) => (
-            <a
-              key={retailer.id}
-              href={buildRetailerUrl(retailer, productName)}
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              onClick={() => trackRetailerLinkClick(retailer.name, productName)}
-              className="rounded-md border border-black/15 px-3 py-1.5 text-sm hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/10"
-            >
-              {retailer.name}
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex-1">
-        <div className="flex items-baseline justify-between gap-2">
-          <h4 className="text-sm font-semibold">2.el</h4>
-          {priceRangeUsed && (
-            <span className="text-xs text-black/60 dark:text-white/60">
-              {formatPriceRange(priceRangeUsed)}
-            </span>
-          )}
-        </div>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {usedRetailers.map((retailer) => (
-            <a
-              key={retailer.id}
-              href={buildRetailerUrl(retailer, productName)}
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              onClick={() => trackRetailerLinkClick(retailer.name, productName)}
-              className="rounded-md border border-black/15 px-3 py-1.5 text-sm hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/10"
-            >
-              {retailer.name}
-            </a>
-          ))}
-        </div>
-      </div>
+    <div className="flex flex-col gap-4 sm:flex-row">
+      <RetailerGroup
+        title="Sıfır"
+        badgeClassName="bg-primary-50 text-primary-accent"
+        priceRange={priceRangeNew}
+        items={newRetailers}
+        productName={productName}
+      />
+      <RetailerGroup
+        title="2.el"
+        badgeClassName="bg-accent-500/10 text-accent-600"
+        priceRange={priceRangeUsed}
+        items={usedRetailers}
+        productName={productName}
+      />
     </div>
   );
 }

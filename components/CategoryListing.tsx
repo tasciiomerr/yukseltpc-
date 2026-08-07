@@ -30,14 +30,17 @@ export default function CategoryListing({
     <div>
       {category.filter && (
         <div className="mb-6 flex items-center gap-2">
-          <label htmlFor="category-filter" className="text-sm font-medium">
+          <label
+            htmlFor="category-filter"
+            className="text-sm font-medium text-foreground/70"
+          >
             {category.filter.label}
           </label>
           <select
             id="category-filter"
             value={selectedFilter}
             onChange={(event) => setSelectedFilter(event.target.value)}
-            className="rounded-md border border-black/15 bg-white px-3 py-1.5 text-sm dark:border-white/15 dark:bg-black"
+            className="rounded-lg border border-border-subtle bg-background px-3 py-1.5 text-sm shadow-sm focus:border-primary-500 focus:outline-none"
           >
             <option value="">Tümü</option>
             {filterOptions.map((option) => (
@@ -50,9 +53,17 @@ export default function CategoryListing({
       )}
 
       {filteredItems.length === 0 ? (
-        <p className="text-sm text-black/60 dark:text-white/60">
-          Bu kritere uyan ürün bulunamadı.
-        </p>
+        <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed border-border-subtle py-16 text-center">
+          <span aria-hidden className="text-3xl">
+            🔍
+          </span>
+          <p className="text-sm font-medium text-foreground/70">
+            Bu kritere uyan ürün bulunamadı.
+          </p>
+          <p className="text-sm text-foreground/50">
+            Farklı bir filtre seçmeyi deneyin.
+          </p>
+        </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filteredItems.map((item) => (

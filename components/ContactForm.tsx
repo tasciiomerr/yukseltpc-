@@ -1,6 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Button from "./Button";
+
+const inputClassName =
+  "rounded-lg border border-border-subtle bg-background px-3 py-2 text-sm shadow-sm focus:border-primary-500 focus:outline-none";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -12,7 +16,7 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <p className="rounded-md border border-green-500/40 bg-green-50 p-4 text-sm text-green-900 dark:bg-green-950/40 dark:text-green-200">
+      <p className="rounded-xl border border-success-500/30 bg-success-50 p-4 text-sm text-success-700">
         Mesajınız için teşekkürler. Bu form şu an demo amaçlıdır ve e-posta
         gönderimi henüz bağlanmadı — lütfen bize doğrudan{" "}
         <a href="mailto:info@yukseltpc.com" className="underline">
@@ -26,7 +30,10 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex max-w-md flex-col gap-4">
       <div className="flex flex-col gap-1">
-        <label htmlFor="contact-name" className="text-sm font-medium">
+        <label
+          htmlFor="contact-name"
+          className="text-sm font-medium text-foreground/70"
+        >
           Ad Soyad
         </label>
         <input
@@ -34,11 +41,14 @@ export default function ContactForm() {
           name="name"
           type="text"
           required
-          className="rounded-md border border-black/15 bg-white px-3 py-2 text-sm dark:border-white/15 dark:bg-black"
+          className={inputClassName}
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="contact-email" className="text-sm font-medium">
+        <label
+          htmlFor="contact-email"
+          className="text-sm font-medium text-foreground/70"
+        >
           E-posta
         </label>
         <input
@@ -46,11 +56,14 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
-          className="rounded-md border border-black/15 bg-white px-3 py-2 text-sm dark:border-white/15 dark:bg-black"
+          className={inputClassName}
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="contact-message" className="text-sm font-medium">
+        <label
+          htmlFor="contact-message"
+          className="text-sm font-medium text-foreground/70"
+        >
           Mesajınız
         </label>
         <textarea
@@ -58,15 +71,12 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
-          className="rounded-md border border-black/15 bg-white px-3 py-2 text-sm dark:border-white/15 dark:bg-black"
+          className={inputClassName}
         />
       </div>
-      <button
-        type="submit"
-        className="self-start rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background hover:opacity-90"
-      >
+      <Button type="submit" className="self-start">
         Gönder
-      </button>
+      </Button>
     </form>
   );
 }
