@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import AnalyticsScripts from "@/components/AnalyticsScripts";
+import AssistantWidget from "@/components/AssistantWidget";
 import CookieConsent from "@/components/CookieConsent";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteFooter />
         <CookieConsent />
         <AnalyticsScripts />
+        <AssistantWidget />
       </body>
     </html>
   );
