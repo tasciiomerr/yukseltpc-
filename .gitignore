@@ -34,6 +34,12 @@ yarn-error.log*
 .env*
 !.env.example
 
+# şifre/secret notları (elle oluşturulan dosyalar)
+supabasesifrre.txt
+*sifre*.txt
+*password*.txt
+*secret*.txt
+
 # vercel
 .vercel
 
