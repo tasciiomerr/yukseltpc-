@@ -1,3 +1,14 @@
+/**
+ * Bu dosya senkron JSON import'larını kasıtlı olarak korur.
+ * components/UyumlulukAraci.tsx gibi "use client" bileşenler bu modülü
+ * doğrudan import ediyor — bir DB istemcisi (ve SUPABASE_SERVICE_ROLE_KEY
+ * gibi bir secret) buraya eklenirse tarayıcıya gönderilen bundle'a sızar.
+ *
+ * Veritabanı artık asıl veri kaynağıdır, ama buraya build ÖNCESİNDE
+ * data/*.json dosyalarına "pull" edilerek gelir — bkz. scripts/pullDbToJson.ts
+ * ve package.json'daki "prebuild" adımı. Bu dosya, DB varlığından habersiz,
+ * her zamanki gibi statik JSON okur.
+ */
 import caseData from "@/data/case.json";
 import coolerData from "@/data/cooler.json";
 import cpuData from "@/data/cpu.json";

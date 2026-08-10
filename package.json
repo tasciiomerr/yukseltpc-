@@ -4,15 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/pullDbToJson.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
     "postbuild": "next-sitemap",
     "validate-data": "tsx scripts/validateData.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "db:seed": "tsx scripts/seedFromJson.ts",
+    "db:verify-parity": "tsx scripts/verifyMigrationParity.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.112.2",
     "gray-matter": "^4.0.3",
     "next": "16.3.0",
     "react": "19.2.8",
