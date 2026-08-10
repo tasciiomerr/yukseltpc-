@@ -381,8 +381,61 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(isPsuSufficient(psu550Real, requiredWatt)).toBe(false);
   });
 
+  it("a Zen 5 Ryzen 9 9950X3D (3D V-Cache) is compatible with an AM5 motherboard", () => {
+    const cpu = requireItem(
+      findCpuBySlug("amd-ryzen-9-9950x3d"),
+      "amd-ryzen-9-9950x3d",
+    );
+    const motherboard = requireItem(
+      findMotherboardBySlug("gigabyte-b650-aorus-elite-ax"),
+      "gigabyte-b650-aorus-elite-ax",
+    );
+    expect(cpu.socket).toBe("AM5");
+    expect(isCpuMotherboardCompatible(cpu, motherboard)).toBe(true);
+  });
+
+  it("an older Zen 2 AM4 APU (Ryzen 5 4600G) is still compatible with a modern AM4 motherboard by socket", () => {
+    const cpu = requireItem(
+      findCpuBySlug("amd-ryzen-5-4600g"),
+      "amd-ryzen-5-4600g",
+    );
+    const motherboard = requireItem(
+      findMotherboardBySlug("asus-rog-strix-x570-e-gaming"),
+      "asus-rog-strix-x570-e-gaming",
+    );
+    expect(cpu.hasIntegratedGraphics).toBe(true);
+    expect(isCpuMotherboardCompatible(cpu, motherboard)).toBe(true);
+  });
+
+  it("an Intel Core Ultra 9 285K (LGA1851) is compatible with an LGA1851 motherboard and incompatible with LGA1700", () => {
+    const cpu = requireItem(
+      findCpuBySlug("intel-core-ultra-9-285k"),
+      "intel-core-ultra-9-285k",
+    );
+    const lga1851Board = requireItem(
+      findMotherboardBySlug("msi-pro-z890-a"),
+      "msi-pro-z890-a",
+    );
+    const lga1700Board = requireItem(
+      findMotherboardBySlug("asus-rog-strix-z790-e-gaming"),
+      "asus-rog-strix-z790-e-gaming",
+    );
+    expect(isCpuMotherboardCompatible(cpu, lga1851Board)).toBe(true);
+    expect(isCpuMotherboardCompatible(cpu, lga1700Board)).toBe(false);
+  });
+
+  it("a Ryzen 7 8700G APU (AM5) fits its PSU/cooling profile as a low-power iGPU build", () => {
+    const cpu = requireItem(
+      findCpuBySlug("amd-ryzen-7-8700g"),
+      "amd-ryzen-7-8700g",
+    );
+    expect(cpu.socket).toBe("AM5");
+    expect(cpu.hasIntegratedGraphics).toBe(true);
+    expect(cpu.tdp).toBeLessThanOrEqual(65);
+  });
+
   it("every catalog item referenced by slug in these tests actually exists (sanity check)", () => {
-    expect(cpus.length).toBeGreaterThanOrEqual(15);
+    expect(cpus.length).toBeGreaterThanOrEqual(60);
     expect(motherboards.length).toBeGreaterThanOrEqual(15);
     expect(rams.length).toBeGreaterThanOrEqual(15);
     expect(gpus.length).toBeGreaterThanOrEqual(15);
