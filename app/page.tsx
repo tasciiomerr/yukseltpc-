@@ -84,7 +84,14 @@ export default function Home() {
             rehberler ve güncel fiyat aralıklarıyla YükseltPC yanında.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <ButtonLink href="/uyumluluk-araci" className="px-6 py-3 text-base">
+            <ButtonLink href="/sistemim" className="px-6 py-3 text-base">
+              Sistemimi Gir, Öneri Al
+            </ButtonLink>
+            <ButtonLink
+              href="/uyumluluk-araci"
+              variant="secondary"
+              className="px-6 py-3 text-base"
+            >
               Uyumluluk Aracını Dene
             </ButtonLink>
             <ButtonLink

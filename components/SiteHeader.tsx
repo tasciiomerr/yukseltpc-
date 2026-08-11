@@ -6,6 +6,7 @@ import { useState } from "react";
 import { categories } from "@/lib/categories";
 
 const toolLinks = [
+  { href: "/sistemim", label: "Sistemim" },
   { href: "/uyumluluk-araci", label: "Uyumluluk Aracı" },
   { href: "/karsilastir", label: "Karşılaştır" },
   { href: "/rehber", label: "Rehber" },
