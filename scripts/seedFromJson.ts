@@ -126,6 +126,34 @@ function ramMeta(ram: Ram): ProductMetaInput {
   };
 }
 
+/**
+ * PSU kataloğu Faz 15'te resmi üretici kaynaklarından (corsair.com,
+ * seasonic.com, evga.com, bequiet.com) doğrulanan 18 yeni kayıtla
+ * genişletildi (psu-017..psu-034). Mevcut 16 kayıt "manual" olarak kalır.
+ */
+const PSU_OFFICIAL_SOURCE_CUTOFF = 17; // psu-017'den itibaren
+
+function psuSourceDomain(name: string): string {
+  const lower = name.toLowerCase();
+  if (lower.includes("corsair")) return "corsair.com";
+  if (lower.includes("seasonic")) return "seasonic.com";
+  if (lower.includes("evga")) return "evga.com";
+  if (lower.includes("be quiet")) return "bequiet.com";
+  return "manual";
+}
+
+function psuMeta(psu: Psu): ProductMetaInput {
+  const numericId = Number(psu.id.replace("psu-", ""));
+  if (numericId < PSU_OFFICIAL_SOURCE_CUTOFF) {
+    return {};
+  }
+  return {
+    source: psuSourceDomain(psu.name),
+    confidence: "high",
+    verifiedAt: psu.lastUpdated,
+  };
+}
+
 async function seedTable<T>(
   table: string,
   records: T[],
@@ -168,7 +196,9 @@ async function main() {
   await seedTable<Gpu>("gpus", readJson("gpu.json"), (gpu) =>
     toGpuInsertRow(gpu, gpuMeta(gpu)),
   );
-  await seedTable<Psu>("psus", readJson("psu.json"), toPsuInsertRow);
+  await seedTable<Psu>("psus", readJson("psu.json"), (psu) =>
+    toPsuInsertRow(psu, psuMeta(psu)),
+  );
   await seedTable<Case>("cases", readJson("case.json"), toCaseInsertRow);
   await seedTable<Cooler>("coolers", readJson("cooler.json"), toCoolerInsertRow);
 

@@ -565,6 +565,36 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(isRamMotherboardCompatible(ram, motherboard)).toBe(false);
   });
 
+  it("calculates a realistic PSU requirement for a Ryzen 9 9950X3D + RTX 4080 flagship build", () => {
+    const cpu = requireItem(
+      findCpuBySlug("amd-ryzen-9-9950x3d"),
+      "amd-ryzen-9-9950x3d",
+    );
+    const gpu = requireItem(findGpuBySlug("nvidia-rtx-4080"), "nvidia-rtx-4080");
+    const requiredWatt = calculateRequiredPsuWatt(cpu, gpu);
+    expect(requiredWatt).toBe(cpu.tdp + gpu.tdp + 150);
+
+    const platinum1200 = requireItem(
+      findPsuBySlug("evga-supernova-1200-p6"),
+      "evga-supernova-1200-p6",
+    );
+    expect(isPsuSufficient(platinum1200, requiredWatt)).toBe(true);
+
+    const budget500 = requireItem(findPsuBySlug("evga-500-br"), "evga-500-br");
+    expect(isPsuSufficient(budget500, requiredWatt)).toBe(false);
+  });
+
+  it("a new budget non-modular PSU (EVGA 500 BR) is sufficient for a low-power iGPU build but not a flagship GPU", () => {
+    const cpu = requireItem(
+      findCpuBySlug("amd-ryzen-5-8500g"),
+      "amd-ryzen-5-8500g",
+    );
+    const psu = requireItem(findPsuBySlug("evga-500-br"), "evga-500-br");
+    expect(psu.wattage).toBeGreaterThanOrEqual(cpu.tdp + 150);
+    expect(psu.isModular).toBe(false);
+    expect(psu.certification).toBe("80+ Bronze");
+  });
+
   it("a Ryzen 7 8700G APU (AM5) fits its PSU/cooling profile as a low-power iGPU build", () => {
     const cpu = requireItem(
       findCpuBySlug("amd-ryzen-7-8700g"),
@@ -580,7 +610,7 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(motherboards.length).toBeGreaterThanOrEqual(35);
     expect(rams.length).toBeGreaterThanOrEqual(30);
     expect(gpus.length).toBeGreaterThanOrEqual(35);
-    expect(psus.length).toBeGreaterThanOrEqual(15);
+    expect(psus.length).toBeGreaterThanOrEqual(30);
     expect(cases.length).toBeGreaterThanOrEqual(15);
     expect(coolers.length).toBeGreaterThanOrEqual(15);
   });
