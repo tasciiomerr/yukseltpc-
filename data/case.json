@@ -163,5 +163,203 @@
     "priceRangeNew": { "min": 1300, "max": 1600 },
     "priceRangeUsed": { "min": 900, "max": 1150 },
     "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "case-016",
+    "slug": "fractal-design-define-7",
+    "name": "Fractal Design Define 7",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 467,
+    "maxCoolerHeightMm": 185,
+    "priceRangeNew": { "min": 6200, "max": 7200 },
+    "priceRangeUsed": { "min": 4700, "max": 5500 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-017",
+    "slug": "corsair-icue-5000x-rgb",
+    "name": "Corsair iCUE 5000X RGB",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 420,
+    "maxCoolerHeightMm": 170,
+    "priceRangeNew": { "min": 5800, "max": 6700 },
+    "priceRangeUsed": { "min": 4400, "max": 5100 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-018",
+    "slug": "nzxt-h9-flow",
+    "name": "NZXT H9 Flow",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 435,
+    "maxCoolerHeightMm": 165,
+    "priceRangeNew": { "min": 6800, "max": 7800 },
+    "priceRangeUsed": { "min": 5200, "max": 6000 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-019",
+    "slug": "lian-li-lancool-iii",
+    "name": "Lian Li Lancool III",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 422,
+    "maxCoolerHeightMm": 175,
+    "priceRangeNew": { "min": 5600, "max": 6400 },
+    "priceRangeUsed": { "min": 4200, "max": 4900 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-020",
+    "slug": "cooler-master-masterbox-td500-mesh",
+    "name": "Cooler Master MasterBox TD500 Mesh",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 410,
+    "maxCoolerHeightMm": 165,
+    "priceRangeNew": { "min": 3400, "max": 4000 },
+    "priceRangeUsed": { "min": 2500, "max": 3000 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-021",
+    "slug": "deepcool-cc560",
+    "name": "Deepcool CC560",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 350,
+    "maxCoolerHeightMm": 165,
+    "priceRangeNew": { "min": 2400, "max": 2900 },
+    "priceRangeUsed": { "min": 1750, "max": 2100 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-022",
+    "slug": "thermaltake-versa-h18",
+    "name": "Thermaltake Versa H18",
+    "supportedFormFactors": ["mATX", "ITX"],
+    "maxGpuLengthMm": 320,
+    "maxCoolerHeightMm": 160,
+    "priceRangeNew": { "min": 1900, "max": 2300 },
+    "priceRangeUsed": { "min": 1350, "max": 1650 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-023",
+    "slug": "cooler-master-nr200p",
+    "name": "Cooler Master NR200P",
+    "supportedFormFactors": ["ITX"],
+    "maxGpuLengthMm": 330,
+    "maxCoolerHeightMm": 155,
+    "priceRangeNew": { "min": 3800, "max": 4400 },
+    "priceRangeUsed": { "min": 2850, "max": 3350 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-024",
+    "slug": "ssupd-meshlicious",
+    "name": "SSUPD Meshlicious",
+    "supportedFormFactors": ["ITX"],
+    "maxGpuLengthMm": 332,
+    "maxCoolerHeightMm": 73,
+    "priceRangeNew": { "min": 5500, "max": 6300 },
+    "priceRangeUsed": { "min": 4200, "max": 4800 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-025",
+    "slug": "fractal-design-node-202",
+    "name": "Fractal Design Node 202",
+    "supportedFormFactors": ["ITX"],
+    "maxGpuLengthMm": 310,
+    "maxCoolerHeightMm": 56,
+    "priceRangeNew": { "min": 4200, "max": 4800 },
+    "priceRangeUsed": { "min": 3100, "max": 3600 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-026",
+    "slug": "jonsbo-d31",
+    "name": "Jonsbo D31",
+    "supportedFormFactors": ["mATX", "ITX"],
+    "maxGpuLengthMm": 330,
+    "maxCoolerHeightMm": 165,
+    "priceRangeNew": { "min": 3200, "max": 3700 },
+    "priceRangeUsed": { "min": 2350, "max": 2750 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-027",
+    "slug": "cooler-master-qube-500-flatpack",
+    "name": "Cooler Master Qube 500 Flatpack",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 370,
+    "maxCoolerHeightMm": 165,
+    "priceRangeNew": { "min": 3600, "max": 4200 },
+    "priceRangeUsed": { "min": 2650, "max": 3100 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-028",
+    "slug": "montech-air-903-max",
+    "name": "Montech Air 903 Max",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 400,
+    "maxCoolerHeightMm": 176,
+    "priceRangeNew": { "min": 3300, "max": 3900 },
+    "priceRangeUsed": { "min": 2400, "max": 2850 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-029",
+    "slug": "hyte-y40",
+    "name": "Hyte Y40",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 400,
+    "maxCoolerHeightMm": 172,
+    "priceRangeNew": { "min": 7200, "max": 8300 },
+    "priceRangeUsed": { "min": 5500, "max": 6400 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-030",
+    "slug": "silverstone-sg13",
+    "name": "SilverStone SG13",
+    "supportedFormFactors": ["ITX"],
+    "maxGpuLengthMm": 350,
+    "maxCoolerHeightMm": 62,
+    "priceRangeNew": { "min": 1600, "max": 2000 },
+    "priceRangeUsed": { "min": 1150, "max": 1450 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-031",
+    "slug": "fractal-design-focus-2",
+    "name": "Fractal Design Focus 2",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 375,
+    "maxCoolerHeightMm": 170,
+    "priceRangeNew": { "min": 2600, "max": 3100 },
+    "priceRangeUsed": { "min": 1900, "max": 2300 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-032",
+    "slug": "corsair-3000d-airflow",
+    "name": "Corsair 3000D Airflow",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 360,
+    "maxCoolerHeightMm": 170,
+    "priceRangeNew": { "min": 3000, "max": 3500 },
+    "priceRangeUsed": { "min": 2200, "max": 2600 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "case-033",
+    "slug": "nzxt-h6-flow",
+    "name": "NZXT H6 Flow",
+    "supportedFormFactors": ["ATX", "mATX", "ITX"],
+    "maxGpuLengthMm": 400,
+    "maxCoolerHeightMm": 165,
+    "priceRangeNew": { "min": 4600, "max": 5300 },
+    "priceRangeUsed": { "min": 3500, "max": 4000 },
+    "lastUpdated": "2026-08-10"
   }
 ]

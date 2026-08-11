@@ -154,6 +154,43 @@ function psuMeta(psu: Psu): ProductMetaInput {
   };
 }
 
+/**
+ * Kasa kataloğu Faz 15'te resmi üretici kaynaklarından (nzxt.com,
+ * corsair.com, fractal-design.com, bequiet.com, lian-li.com ve diğer
+ * markaların resmi sayfaları) doğrulanan 18 yeni kayıtla genişletildi
+ * (case-016..case-033). Mevcut 15 kayıt "manual" olarak kalır.
+ */
+const CASE_OFFICIAL_SOURCE_CUTOFF = 16; // case-016'dan itibaren
+
+function caseSourceDomain(name: string): string {
+  const lower = name.toLowerCase();
+  if (lower.includes("nzxt")) return "nzxt.com";
+  if (lower.includes("corsair")) return "corsair.com";
+  if (lower.includes("fractal design")) return "fractal-design.com";
+  if (lower.includes("lian li")) return "lian-li.com";
+  if (lower.includes("cooler master")) return "coolermaster.com";
+  if (lower.includes("deepcool")) return "deepcool.com";
+  if (lower.includes("thermaltake")) return "thermaltake.com";
+  if (lower.includes("ssupd")) return "ssupd.com";
+  if (lower.includes("jonsbo")) return "jonsbo.com";
+  if (lower.includes("hyte")) return "hyte.com";
+  if (lower.includes("silverstone")) return "silverstonetek.com";
+  if (lower.includes("montech")) return "montechworld.com";
+  return "manual";
+}
+
+function caseMeta(pcCase: Case): ProductMetaInput {
+  const numericId = Number(pcCase.id.replace("case-", ""));
+  if (numericId < CASE_OFFICIAL_SOURCE_CUTOFF) {
+    return {};
+  }
+  return {
+    source: caseSourceDomain(pcCase.name),
+    confidence: "high",
+    verifiedAt: pcCase.lastUpdated,
+  };
+}
+
 async function seedTable<T>(
   table: string,
   records: T[],
@@ -199,7 +236,9 @@ async function main() {
   await seedTable<Psu>("psus", readJson("psu.json"), (psu) =>
     toPsuInsertRow(psu, psuMeta(psu)),
   );
-  await seedTable<Case>("cases", readJson("case.json"), toCaseInsertRow);
+  await seedTable<Case>("cases", readJson("case.json"), (pcCase) =>
+    toCaseInsertRow(pcCase, caseMeta(pcCase)),
+  );
   await seedTable<Cooler>("coolers", readJson("cooler.json"), toCoolerInsertRow);
 
   console.log("\nSeed tamamlandı. Doğrulamak için:\n  npx tsx scripts/verifyMigrationParity.ts");

@@ -595,6 +595,40 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(psu.certification).toBe("80+ Bronze");
   });
 
+  it("an RTX 4080 (310mm) exactly fits the compact Fractal Design Node 202 (310mm limit)", () => {
+    const gpu = requireItem(findGpuBySlug("nvidia-rtx-4080"), "nvidia-rtx-4080");
+    const pcCase = requireItem(
+      findCaseBySlug("fractal-design-node-202"),
+      "fractal-design-node-202",
+    );
+    expect(gpu.lengthMm).toBe(pcCase.maxGpuLengthMm);
+    expect(isGpuCaseCompatible(gpu, pcCase)).toBe(true);
+  });
+
+  it("a flagship RTX 4090 (336mm) does NOT fit the ultra-compact Fractal Design Node 202 (310mm limit)", () => {
+    const gpu = requireItem(findGpuBySlug("nvidia-rtx-4090"), "nvidia-rtx-4090");
+    const pcCase = requireItem(
+      findCaseBySlug("fractal-design-node-202"),
+      "fractal-design-node-202",
+    );
+    expect(gpu.lengthMm).toBeGreaterThan(pcCase.maxGpuLengthMm);
+    expect(isGpuCaseCompatible(gpu, pcCase)).toBe(false);
+  });
+
+  it("an RX 6900 XT (267mm) fits every new SFF/ITX case, including the most restrictive ones", () => {
+    const gpu = requireItem(findGpuBySlug("amd-rx-6900-xt"), "amd-rx-6900-xt");
+    const nr200p = requireItem(
+      findCaseBySlug("cooler-master-nr200p"),
+      "cooler-master-nr200p",
+    );
+    const node202 = requireItem(
+      findCaseBySlug("fractal-design-node-202"),
+      "fractal-design-node-202",
+    );
+    expect(isGpuCaseCompatible(gpu, nr200p)).toBe(true);
+    expect(isGpuCaseCompatible(gpu, node202)).toBe(true);
+  });
+
   it("a Ryzen 7 8700G APU (AM5) fits its PSU/cooling profile as a low-power iGPU build", () => {
     const cpu = requireItem(
       findCpuBySlug("amd-ryzen-7-8700g"),
@@ -611,7 +645,7 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(rams.length).toBeGreaterThanOrEqual(30);
     expect(gpus.length).toBeGreaterThanOrEqual(35);
     expect(psus.length).toBeGreaterThanOrEqual(30);
-    expect(cases.length).toBeGreaterThanOrEqual(15);
+    expect(cases.length).toBeGreaterThanOrEqual(30);
     expect(coolers.length).toBeGreaterThanOrEqual(15);
   });
 });
