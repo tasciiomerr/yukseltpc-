@@ -629,6 +629,54 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(isGpuCaseCompatible(gpu, node202)).toBe(true);
   });
 
+  it("a new flagship air cooler (Noctua NH-D15 G2) is compatible with an LGA1851 Core Ultra 9 285K", () => {
+    const cpu = requireItem(
+      findCpuBySlug("intel-core-ultra-9-285k"),
+      "intel-core-ultra-9-285k",
+    );
+    const cooler = requireItem(
+      findCoolerBySlug("noctua-nh-d15-g2"),
+      "noctua-nh-d15-g2",
+    );
+    expect(isCoolerCompatible(cooler, cpu)).toBe(true);
+  });
+
+  it("a new budget cooler without LGA1851 support (DeepCool AK400) is NOT compatible with a Core Ultra 9 285K", () => {
+    const cpu = requireItem(
+      findCpuBySlug("intel-core-ultra-9-285k"),
+      "intel-core-ultra-9-285k",
+    );
+    const cooler = requireItem(findCoolerBySlug("deepcool-ak400"), "deepcool-ak400");
+    expect(cooler.compatibleSockets).not.toContain("LGA1851");
+    expect(isCoolerCompatible(cooler, cpu)).toBe(false);
+  });
+
+  it("a new premium AIO (NZXT Kraken 360) is compatible with a Ryzen 9 9950X3D (AM5, 3D V-Cache)", () => {
+    const cpu = requireItem(
+      findCpuBySlug("amd-ryzen-9-9950x3d"),
+      "amd-ryzen-9-9950x3d",
+    );
+    const cooler = requireItem(findCoolerBySlug("nzxt-kraken-360"), "nzxt-kraken-360");
+    expect(isCoolerCompatible(cooler, cpu)).toBe(true);
+  });
+
+  it("a new low-profile cooler (Noctua NH-L12Sx77, 77mm) does NOT fit an ultra-compact case (Node 202, 56mm limit) but fits a roomier ITX case", () => {
+    const cooler = requireItem(
+      findCoolerBySlug("noctua-nh-l12sx77"),
+      "noctua-nh-l12sx77",
+    );
+    const tightCase = requireItem(
+      findCaseBySlug("fractal-design-node-202"),
+      "fractal-design-node-202",
+    );
+    const roomierCase = requireItem(
+      findCaseBySlug("cooler-master-nr200p"),
+      "cooler-master-nr200p",
+    );
+    expect(cooler.heightMm).toBeGreaterThan(tightCase.maxCoolerHeightMm);
+    expect(cooler.heightMm).toBeLessThanOrEqual(roomierCase.maxCoolerHeightMm);
+  });
+
   it("a Ryzen 7 8700G APU (AM5) fits its PSU/cooling profile as a low-power iGPU build", () => {
     const cpu = requireItem(
       findCpuBySlug("amd-ryzen-7-8700g"),
@@ -646,6 +694,6 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(gpus.length).toBeGreaterThanOrEqual(35);
     expect(psus.length).toBeGreaterThanOrEqual(30);
     expect(cases.length).toBeGreaterThanOrEqual(30);
-    expect(coolers.length).toBeGreaterThanOrEqual(15);
+    expect(coolers.length).toBeGreaterThanOrEqual(30);
   });
 });

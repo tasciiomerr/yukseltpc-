@@ -163,5 +163,203 @@
     "priceRangeNew": { "min": 1900, "max": 2200 },
     "priceRangeUsed": { "min": 1350, "max": 1650 },
     "lastUpdated": "2026-08-09"
+  },
+  {
+    "id": "cooler-016",
+    "slug": "noctua-nh-d15-g2",
+    "name": "Noctua NH-D15 G2",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 168,
+    "priceRangeNew": { "min": 6200, "max": 7100 },
+    "priceRangeUsed": { "min": 4700, "max": 5400 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-017",
+    "slug": "bequiet-dark-rock-pro-4",
+    "name": "be quiet! Dark Rock Pro 4",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700"],
+    "heightMm": 163,
+    "priceRangeNew": { "min": 3800, "max": 4400 },
+    "priceRangeUsed": { "min": 2800, "max": 3300 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-018",
+    "slug": "thermalright-frost-commander-140",
+    "name": "Thermalright Frost Commander 140",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 158,
+    "priceRangeNew": { "min": 1600, "max": 1900 },
+    "priceRangeUsed": { "min": 1150, "max": 1400 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-019",
+    "slug": "cooler-master-hyper-622-halo",
+    "name": "Cooler Master Hyper 622 Halo",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 158,
+    "priceRangeNew": { "min": 2600, "max": 3000 },
+    "priceRangeUsed": { "min": 1900, "max": 2250 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-020",
+    "slug": "noctua-nh-u9s",
+    "name": "Noctua NH-U9S",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 125,
+    "priceRangeNew": { "min": 2900, "max": 3300 },
+    "priceRangeUsed": { "min": 2100, "max": 2500 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-021",
+    "slug": "deepcool-ak400",
+    "name": "DeepCool AK400",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700"],
+    "heightMm": 155,
+    "priceRangeNew": { "min": 900, "max": 1150 },
+    "priceRangeUsed": { "min": 620, "max": 800 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-022",
+    "slug": "arctic-freezer-36",
+    "name": "ARCTIC Freezer 36",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 157,
+    "priceRangeNew": { "min": 1100, "max": 1350 },
+    "priceRangeUsed": { "min": 750, "max": 950 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-023",
+    "slug": "scythe-mugen-5",
+    "name": "Scythe Mugen 5",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700"],
+    "heightMm": 154,
+    "priceRangeNew": { "min": 1700, "max": 2000 },
+    "priceRangeUsed": { "min": 1200, "max": 1450 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-024",
+    "slug": "noctua-nh-l12sx77",
+    "name": "Noctua NH-L12Sx77",
+    "type": "air",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700"],
+    "heightMm": 77,
+    "priceRangeNew": { "min": 2400, "max": 2800 },
+    "priceRangeUsed": { "min": 1750, "max": 2050 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-025",
+    "slug": "corsair-icue-h115i-elite",
+    "name": "Corsair iCUE H115i Elite",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 5600, "max": 6400 },
+    "priceRangeUsed": { "min": 4200, "max": 4800 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-026",
+    "slug": "nzxt-kraken-360",
+    "name": "NZXT Kraken 360",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 6600, "max": 7600 },
+    "priceRangeUsed": { "min": 5000, "max": 5700 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-027",
+    "slug": "lian-li-galahad-ii-lcd-240",
+    "name": "Lian Li Galahad II LCD 240",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 5400, "max": 6200 },
+    "priceRangeUsed": { "min": 4100, "max": 4700 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-028",
+    "slug": "arctic-liquid-freezer-ii-420",
+    "name": "Arctic Liquid Freezer II 420",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 4400, "max": 5000 },
+    "priceRangeUsed": { "min": 3300, "max": 3800 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-029",
+    "slug": "msi-mag-coreliquid-360r",
+    "name": "MSI MAG CoreLiquid 360R",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 5800, "max": 6600 },
+    "priceRangeUsed": { "min": 4400, "max": 5000 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-030",
+    "slug": "bequiet-pure-loop-2-fx-280",
+    "name": "be quiet! Pure Loop 2 FX 280",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 4200, "max": 4800 },
+    "priceRangeUsed": { "min": 3100, "max": 3600 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-031",
+    "slug": "deepcool-ls520",
+    "name": "DeepCool LS520",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 2600, "max": 3000 },
+    "priceRangeUsed": { "min": 1900, "max": 2250 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-032",
+    "slug": "corsair-icue-link-h150i",
+    "name": "Corsair iCUE LINK H150i",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 8200, "max": 9400 },
+    "priceRangeUsed": { "min": 6300, "max": 7200 },
+    "lastUpdated": "2026-08-10"
+  },
+  {
+    "id": "cooler-033",
+    "slug": "ek-nucleus-aio-cr360-lux-drgb",
+    "name": "EK-Nucleus AIO CR360 Lux D-RGB",
+    "type": "liquid",
+    "compatibleSockets": ["AM4", "AM5", "LGA1700", "LGA1851"],
+    "heightMm": 52,
+    "priceRangeNew": { "min": 7200, "max": 8300 },
+    "priceRangeUsed": { "min": 5500, "max": 6400 },
+    "lastUpdated": "2026-08-10"
   }
 ]

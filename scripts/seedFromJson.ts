@@ -191,6 +191,43 @@ function caseMeta(pcCase: Case): ProductMetaInput {
   };
 }
 
+/**
+ * Soğutucu kataloğu Faz 15'te resmi üretici kaynaklarından (noctua.at,
+ * coolermaster.com, nzxt.com, corsair.com, bequiet.com ve diğer marka
+ * sayfaları) doğrulanan 18 yeni kayıtla genişletildi (cooler-016..
+ * cooler-033). Mevcut 15 kayıt "manual" olarak kalır.
+ */
+const COOLER_OFFICIAL_SOURCE_CUTOFF = 16; // cooler-016'dan itibaren
+
+function coolerSourceDomain(name: string): string {
+  const lower = name.toLowerCase();
+  if (lower.includes("noctua")) return "noctua.at";
+  if (lower.includes("cooler master")) return "coolermaster.com";
+  if (lower.includes("nzxt")) return "nzxt.com";
+  if (lower.includes("corsair")) return "corsair.com";
+  if (lower.includes("be quiet")) return "bequiet.com";
+  if (lower.includes("thermalright")) return "thermalright.com";
+  if (lower.includes("deepcool")) return "deepcool.com";
+  if (lower.includes("arctic")) return "arctic.de";
+  if (lower.includes("scythe")) return "scythe-eu.com";
+  if (lower.includes("lian li")) return "lian-li.com";
+  if (lower.includes("msi")) return "msi.com";
+  if (lower.includes("ek-")) return "ekwb.com";
+  return "manual";
+}
+
+function coolerMeta(cooler: Cooler): ProductMetaInput {
+  const numericId = Number(cooler.id.replace("cooler-", ""));
+  if (numericId < COOLER_OFFICIAL_SOURCE_CUTOFF) {
+    return {};
+  }
+  return {
+    source: coolerSourceDomain(cooler.name),
+    confidence: "high",
+    verifiedAt: cooler.lastUpdated,
+  };
+}
+
 async function seedTable<T>(
   table: string,
   records: T[],
@@ -239,7 +276,9 @@ async function main() {
   await seedTable<Case>("cases", readJson("case.json"), (pcCase) =>
     toCaseInsertRow(pcCase, caseMeta(pcCase)),
   );
-  await seedTable<Cooler>("coolers", readJson("cooler.json"), toCoolerInsertRow);
+  await seedTable<Cooler>("coolers", readJson("cooler.json"), (cooler) =>
+    toCoolerInsertRow(cooler, coolerMeta(cooler)),
+  );
 
   console.log("\nSeed tamamlandı. Doğrulamak için:\n  npx tsx scripts/verifyMigrationParity.ts");
 }
