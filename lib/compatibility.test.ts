@@ -474,6 +474,61 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(isPsuSufficient(psu550Real, requiredWatt)).toBe(false);
   });
 
+  it("a budget Ryzen 5 5500 (AM4) is compatible with a budget A320 motherboard", () => {
+    const cpu = requireItem(findCpuBySlug("amd-ryzen-5-5500"), "amd-ryzen-5-5500");
+    const motherboard = requireItem(
+      findMotherboardBySlug("gigabyte-a320m-s2h"),
+      "gigabyte-a320m-s2h",
+    );
+    expect(isCpuMotherboardCompatible(cpu, motherboard)).toBe(true);
+  });
+
+  it("DDR5 RAM is compatible with a new B650E motherboard but NOT with a new DDR4-only B450 motherboard", () => {
+    const ram = requireItem(
+      findRamBySlug("gskill-trident-z5-32gb-ddr5-6000"),
+      "gskill-trident-z5-32gb-ddr5-6000",
+    );
+    const b650e = requireItem(
+      findMotherboardBySlug("asus-rog-strix-b650e-f-gaming-wifi"),
+      "asus-rog-strix-b650e-f-gaming-wifi",
+    );
+    const b450 = requireItem(
+      findMotherboardBySlug("gigabyte-b450-aorus-elite"),
+      "gigabyte-b450-aorus-elite",
+    );
+    expect(isRamMotherboardCompatible(ram, b650e)).toBe(true);
+    expect(isRamMotherboardCompatible(ram, b450)).toBe(false);
+  });
+
+  it("an Intel Core Ultra 9 285K is compatible with a new Z890 motherboard but NOT a new LGA1700 H610 motherboard", () => {
+    const cpu = requireItem(
+      findCpuBySlug("intel-core-ultra-9-285k"),
+      "intel-core-ultra-9-285k",
+    );
+    const z890 = requireItem(
+      findMotherboardBySlug("asrock-z890-pro-rs-wifi"),
+      "asrock-z890-pro-rs-wifi",
+    );
+    const h610 = requireItem(
+      findMotherboardBySlug("asus-prime-h610m-e-d4"),
+      "asus-prime-h610m-e-d4",
+    );
+    expect(isCpuMotherboardCompatible(cpu, z890)).toBe(true);
+    expect(isCpuMotherboardCompatible(cpu, h610)).toBe(false);
+  });
+
+  it("a budget H810 (LGA1851) motherboard is NOT compatible with an LGA1700 CPU", () => {
+    const cpu = requireItem(
+      findCpuBySlug("intel-core-i5-14400f"),
+      "intel-core-i5-14400f",
+    );
+    const h810 = requireItem(
+      findMotherboardBySlug("asus-prime-h810m-k"),
+      "asus-prime-h810m-k",
+    );
+    expect(isCpuMotherboardCompatible(cpu, h810)).toBe(false);
+  });
+
   it("a Ryzen 7 8700G APU (AM5) fits its PSU/cooling profile as a low-power iGPU build", () => {
     const cpu = requireItem(
       findCpuBySlug("amd-ryzen-7-8700g"),
@@ -486,7 +541,7 @@ describe("real catalog data — known-correct hardware scenarios", () => {
 
   it("every catalog item referenced by slug in these tests actually exists (sanity check)", () => {
     expect(cpus.length).toBeGreaterThanOrEqual(60);
-    expect(motherboards.length).toBeGreaterThanOrEqual(15);
+    expect(motherboards.length).toBeGreaterThanOrEqual(35);
     expect(rams.length).toBeGreaterThanOrEqual(15);
     expect(gpus.length).toBeGreaterThanOrEqual(35);
     expect(psus.length).toBeGreaterThanOrEqual(15);

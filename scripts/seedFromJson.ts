@@ -71,6 +71,32 @@ function gpuMeta(gpu: Gpu): ProductMetaInput {
   };
 }
 
+/**
+ * Anakart kataloğu Faz 15'te resmi üretici kaynaklarından (asus.com,
+ * msi.com, gigabyte.com, asrock.com) doğrulanan 22 yeni kayıtla
+ * genişletildi (mb-018..mb-039). Mevcut 17 kayıt "manual" olarak kalır.
+ */
+const MOTHERBOARD_OFFICIAL_SOURCE_CUTOFF = 18; // mb-018'den itibaren
+
+const MOTHERBOARD_BRAND_DOMAINS: Record<string, string> = {
+  ASUS: "asus.com",
+  MSI: "msi.com",
+  Gigabyte: "gigabyte.com",
+  ASRock: "asrock.com",
+};
+
+function motherboardMeta(motherboard: Motherboard): ProductMetaInput {
+  const numericId = Number(motherboard.id.replace("mb-", ""));
+  if (numericId < MOTHERBOARD_OFFICIAL_SOURCE_CUTOFF) {
+    return {};
+  }
+  return {
+    source: MOTHERBOARD_BRAND_DOMAINS[motherboard.brand] ?? "manual",
+    confidence: "high",
+    verifiedAt: motherboard.lastUpdated,
+  };
+}
+
 async function seedTable<T>(
   table: string,
   records: T[],
@@ -105,7 +131,7 @@ async function main() {
   await seedTable<Motherboard>(
     "motherboards",
     readJson("motherboard.json"),
-    toMotherboardInsertRow,
+    (motherboard) => toMotherboardInsertRow(motherboard, motherboardMeta(motherboard)),
   );
   await seedTable<Ram>("rams", readJson("ram.json"), toRamInsertRow);
   await seedTable<Gpu>("gpus", readJson("gpu.json"), (gpu) =>
