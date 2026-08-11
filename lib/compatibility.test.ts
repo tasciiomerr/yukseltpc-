@@ -424,6 +424,56 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(isCpuMotherboardCompatible(cpu, lga1700Board)).toBe(false);
   });
 
+  it("an RTX 4080 (310mm) just barely fits a case with a 320mm GPU limit", () => {
+    const gpu = requireItem(findGpuBySlug("nvidia-rtx-4080"), "nvidia-rtx-4080");
+    const pcCase = requireItem(
+      findCaseBySlug("montech-air-100"),
+      "montech-air-100",
+    );
+    expect(gpu.lengthMm).toBeLessThanOrEqual(pcCase.maxGpuLengthMm);
+    expect(isGpuCaseCompatible(gpu, pcCase)).toBe(true);
+  });
+
+  it("a budget RTX 3050 (168mm) fits even the most compact Mini-ITX case", () => {
+    const gpu = requireItem(findGpuBySlug("nvidia-rtx-3050"), "nvidia-rtx-3050");
+    const pcCase = requireItem(
+      findCaseBySlug("cooler-master-nr200"),
+      "cooler-master-nr200",
+    );
+    expect(isGpuCaseCompatible(gpu, pcCase)).toBe(true);
+  });
+
+  it("an RX 6900 XT (267mm) fits a compact SFF case within its 330mm limit", () => {
+    const gpu = requireItem(findGpuBySlug("amd-rx-6900-xt"), "amd-rx-6900-xt");
+    const pcCase = requireItem(
+      findCaseBySlug("cooler-master-nr200"),
+      "cooler-master-nr200",
+    );
+    expect(isGpuCaseCompatible(gpu, pcCase)).toBe(true);
+  });
+
+  it("calculates a realistic PSU requirement for a Ryzen 9 9950X + RX 6900 XT build", () => {
+    const cpu = requireItem(
+      findCpuBySlug("amd-ryzen-9-9950x"),
+      "amd-ryzen-9-9950x",
+    );
+    const gpu = requireItem(findGpuBySlug("amd-rx-6900-xt"), "amd-rx-6900-xt");
+    const requiredWatt = calculateRequiredPsuWatt(cpu, gpu);
+    expect(requiredWatt).toBe(cpu.tdp + gpu.tdp + 150);
+
+    const psu850 = requireItem(
+      findPsuBySlug("corsair-rm850x"),
+      "corsair-rm850x",
+    );
+    expect(isPsuSufficient(psu850, requiredWatt)).toBe(true);
+
+    const psu550Real = requireItem(
+      findPsuBySlug("corsair-cv550"),
+      "corsair-cv550",
+    );
+    expect(isPsuSufficient(psu550Real, requiredWatt)).toBe(false);
+  });
+
   it("a Ryzen 7 8700G APU (AM5) fits its PSU/cooling profile as a low-power iGPU build", () => {
     const cpu = requireItem(
       findCpuBySlug("amd-ryzen-7-8700g"),
@@ -438,7 +488,7 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(cpus.length).toBeGreaterThanOrEqual(60);
     expect(motherboards.length).toBeGreaterThanOrEqual(15);
     expect(rams.length).toBeGreaterThanOrEqual(15);
-    expect(gpus.length).toBeGreaterThanOrEqual(15);
+    expect(gpus.length).toBeGreaterThanOrEqual(35);
     expect(psus.length).toBeGreaterThanOrEqual(15);
     expect(cases.length).toBeGreaterThanOrEqual(15);
     expect(coolers.length).toBeGreaterThanOrEqual(15);

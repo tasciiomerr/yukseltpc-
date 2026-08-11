@@ -52,6 +52,25 @@ function cpuMeta(cpu: Cpu): ProductMetaInput {
   };
 }
 
+/**
+ * GPU kataloğu Faz 14'te resmi üretici kaynaklarından (nvidia.com,
+ * amd.com) doğrulanan 20 yeni kayıtla genişletildi (gpu-016..gpu-035).
+ * Mevcut 15 kayıt (gpu-001..gpu-015) "manual" olarak kalır.
+ */
+const GPU_OFFICIAL_SOURCE_CUTOFF = 16; // gpu-016'dan itibaren
+
+function gpuMeta(gpu: Gpu): ProductMetaInput {
+  const numericId = Number(gpu.id.replace("gpu-", ""));
+  if (numericId < GPU_OFFICIAL_SOURCE_CUTOFF) {
+    return {};
+  }
+  return {
+    source: gpu.brand === "NVIDIA" ? "nvidia.com" : "amd.com",
+    confidence: "high",
+    verifiedAt: gpu.lastUpdated,
+  };
+}
+
 async function seedTable<T>(
   table: string,
   records: T[],
@@ -89,7 +108,9 @@ async function main() {
     toMotherboardInsertRow,
   );
   await seedTable<Ram>("rams", readJson("ram.json"), toRamInsertRow);
-  await seedTable<Gpu>("gpus", readJson("gpu.json"), toGpuInsertRow);
+  await seedTable<Gpu>("gpus", readJson("gpu.json"), (gpu) =>
+    toGpuInsertRow(gpu, gpuMeta(gpu)),
+  );
   await seedTable<Psu>("psus", readJson("psu.json"), toPsuInsertRow);
   await seedTable<Case>("cases", readJson("case.json"), toCaseInsertRow);
   await seedTable<Cooler>("coolers", readJson("cooler.json"), toCoolerInsertRow);
