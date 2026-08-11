@@ -529,6 +529,42 @@ describe("real catalog data — known-correct hardware scenarios", () => {
     expect(isCpuMotherboardCompatible(cpu, h810)).toBe(false);
   });
 
+  it("a high-capacity 96GB DDR5 kit is compatible with a DDR5 AM5 motherboard", () => {
+    const ram = requireItem(
+      findRamBySlug("corsair-vengeance-96gb-ddr5-5600"),
+      "corsair-vengeance-96gb-ddr5-5600",
+    );
+    const motherboard = requireItem(
+      findMotherboardBySlug("gigabyte-x670-aorus-elite-ax"),
+      "gigabyte-x670-aorus-elite-ax",
+    );
+    expect(isRamMotherboardCompatible(ram, motherboard)).toBe(true);
+  });
+
+  it("a budget single-module 8GB DDR4 kit is compatible with a budget DDR4 motherboard", () => {
+    const ram = requireItem(
+      findRamBySlug("crucial-8gb-ddr4-2400"),
+      "crucial-8gb-ddr4-2400",
+    );
+    const motherboard = requireItem(
+      findMotherboardBySlug("gigabyte-a320m-s2h"),
+      "gigabyte-a320m-s2h",
+    );
+    expect(isRamMotherboardCompatible(ram, motherboard)).toBe(true);
+  });
+
+  it("a high-speed DDR4 4000MHz kit is NOT compatible with a DDR5-only LGA1851 motherboard", () => {
+    const ram = requireItem(
+      findRamBySlug("kingston-fury-renegade-32gb-ddr4-4000"),
+      "kingston-fury-renegade-32gb-ddr4-4000",
+    );
+    const motherboard = requireItem(
+      findMotherboardBySlug("msi-mag-z890-tomahawk-wifi"),
+      "msi-mag-z890-tomahawk-wifi",
+    );
+    expect(isRamMotherboardCompatible(ram, motherboard)).toBe(false);
+  });
+
   it("a Ryzen 7 8700G APU (AM5) fits its PSU/cooling profile as a low-power iGPU build", () => {
     const cpu = requireItem(
       findCpuBySlug("amd-ryzen-7-8700g"),
@@ -542,7 +578,7 @@ describe("real catalog data — known-correct hardware scenarios", () => {
   it("every catalog item referenced by slug in these tests actually exists (sanity check)", () => {
     expect(cpus.length).toBeGreaterThanOrEqual(60);
     expect(motherboards.length).toBeGreaterThanOrEqual(35);
-    expect(rams.length).toBeGreaterThanOrEqual(15);
+    expect(rams.length).toBeGreaterThanOrEqual(30);
     expect(gpus.length).toBeGreaterThanOrEqual(35);
     expect(psus.length).toBeGreaterThanOrEqual(15);
     expect(cases.length).toBeGreaterThanOrEqual(15);

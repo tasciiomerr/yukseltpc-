@@ -97,6 +97,35 @@ function motherboardMeta(motherboard: Motherboard): ProductMetaInput {
   };
 }
 
+/**
+ * RAM kataloğu Faz 15'te resmi üretici kaynaklarından (kingston.com,
+ * corsair.com, gskill.com, crucial.com) doğrulanan 18 yeni kayıtla
+ * genişletildi (ram-017..ram-034). Mevcut 16 kayıt "manual" olarak kalır.
+ */
+const RAM_OFFICIAL_SOURCE_CUTOFF = 17; // ram-017'den itibaren
+
+function ramSourceDomain(name: string): string {
+  const lower = name.toLowerCase();
+  if (lower.includes("kingston")) return "kingston.com";
+  if (lower.includes("corsair")) return "corsair.com";
+  if (lower.includes("g.skill") || lower.includes("gskill")) return "gskill.com";
+  if (lower.includes("crucial")) return "crucial.com";
+  if (lower.includes("teamgroup") || lower.includes("t-force")) return "teamgroupinc.com";
+  return "manual";
+}
+
+function ramMeta(ram: Ram): ProductMetaInput {
+  const numericId = Number(ram.id.replace("ram-", ""));
+  if (numericId < RAM_OFFICIAL_SOURCE_CUTOFF) {
+    return {};
+  }
+  return {
+    source: ramSourceDomain(ram.name),
+    confidence: "high",
+    verifiedAt: ram.lastUpdated,
+  };
+}
+
 async function seedTable<T>(
   table: string,
   records: T[],
@@ -133,7 +162,9 @@ async function main() {
     readJson("motherboard.json"),
     (motherboard) => toMotherboardInsertRow(motherboard, motherboardMeta(motherboard)),
   );
-  await seedTable<Ram>("rams", readJson("ram.json"), toRamInsertRow);
+  await seedTable<Ram>("rams", readJson("ram.json"), (ram) =>
+    toRamInsertRow(ram, ramMeta(ram)),
+  );
   await seedTable<Gpu>("gpus", readJson("gpu.json"), (gpu) =>
     toGpuInsertRow(gpu, gpuMeta(gpu)),
   );
